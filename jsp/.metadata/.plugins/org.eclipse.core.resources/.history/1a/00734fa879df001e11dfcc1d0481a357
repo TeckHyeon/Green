@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+ul, li {
+padding: 0; margin: 0;
+list-style-type: none;
+}
+ul {
+border: 1px solid blue; margin: 20px;
+}
+</style>
+<script>
+	let result = {
+		"page" : 2,
+		"per_page" : 6,
+		"total" : 12,
+		"total_pages" : 2,
+		"data" : [ {
+			"id" : 7,
+			"email" : "michael.lawson@reqres.in",
+			"first_name" : "Michael",
+			"last_name" : "Lawson",
+			"avatar" : "https://reqres.in/img/faces/7-image.jpg"
+		}, {
+			"id" : 8,
+			"email" : "lindsay.ferguson@reqres.in",
+			"first_name" : "Lindsay",
+			"last_name" : "Ferguson",
+			"avatar" : "https://reqres.in/img/faces/8-image.jpg"
+		}, {
+			"id" : 9,
+			"email" : "tobias.funke@reqres.in",
+			"first_name" : "Tobias",
+			"last_name" : "Funke",
+			"avatar" : "https://reqres.in/img/faces/9-image.jpg"
+		}, {
+			"id" : 10,
+			"email" : "byron.fields@reqres.in",
+			"first_name" : "Byron",
+			"last_name" : "Fields",
+			"avatar" : "https://reqres.in/img/faces/10-image.jpg"
+		}, {
+			"id" : 11,
+			"email" : "george.edwards@reqres.in",
+			"first_name" : "George",
+			"last_name" : "Edwards",
+			"avatar" : "https://reqres.in/img/faces/11-image.jpg"
+		}, {
+			"id" : 12,
+			"email" : "rachel.howell@reqres.in",
+			"first_name" : "Rachel",
+			"last_name" : "Howell",
+			"avatar" : "https://reqres.in/img/faces/12-image.jpg"
+		} ],
+		"support" : {
+			"url" : "https://reqres.in/#support-heading",
+			"text" : "To keep ReqRes free, contributions towards server costs are appreciated!"
+		}
+	};
+</script>
+</head>
+
+<body>
+	<h2>JS obj 출력</h2>
+	<div id="div1"></div>
+	<script type="text/javascript">
+		console.dir(result);
+
+		let dataList = result.data;
+		let data1 = dataList[1];
+		console.dir(data1);
+		let msg = '';
+		msg += data1.id + ",";
+		msg += data1.first_name + ",";
+		msg += data1.last_name + ",";
+		msg += data1.email + ",";
+		msg += data1.avatar + ",";
+		alert(msg);
+		const div1 = document.querySelector('#div1');
+		let html = `<table border="1">`;
+		html += `<tr><td>전체 자료수</td><td>` + result.total + `</td></tr>`;
+		html += `<tr><td><div>페이지당 자료수</td><td>` + result.per_page
+				+ `</div></td></tr>`;
+		html += `<tr><td><div>총 페이지</td><td>` + result.total_pages
+				+ `</div></td></tr>`;
+		html += `<tr><td><div>현재 페이지</td><td>` + result.page
+				+ `</div></td></tr>`;
+		html += `</table>`;
+			html += `<table border="1">`;
+
+		for (let i = 0; i < 6; i++) {
+		let data = result.data[i];
+		html += `<tr>`;
+		html += `<td>`+ data.id + `</td>`;
+		html += `<td>`+ data.first_name + `</td>`;
+		html += `<td>`+ data.last_name + `</td>`;
+		html += `<td>`+ data.email + `</td>`;
+		html += `<td>`+ data.avatar + `</td>`;
+		html += `</tr>`;
+		}
+		html += `</table>`;
+		
+		for(let data of result.data) {
+			html +=`<ul>
+				<li>번호 : ${data.id}</li>
+				<li>이름 : ${data.first_name}</li>
+				<li>성 : ${data.last_name}</li>
+				<li>이메일 : ${data.email}</li>
+				<li>아바타 : ${data.avatar}</li>
+			</ul>`;
+		}
+		
+		
+		/*
+		 */
+		div1.innerHTML = html;
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="MEMBER" directorySegmentName="seg_0" id="334D9F47-79C4-6838-09E9-8380EC2A3116">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<schemaObject>B65F6B08-3D2B-CFE2-34BB-F525C802B9AA</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>E49DA298-F3D8-C048-7562-8FD1113FA512</segment>
+<tableSpace>7E80DF94-CC23-AE9B-F19A-2AE0415236B3</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="POINT" id="120F9525-C67D-C818-2E20-504E87C0653A">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<defaultValue>1000</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="BIRTH" id="4A1C3F4D-B3CA-83F6-BE59-B7B3FC84B21E">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NAME" id="4F726990-52B1-9D6B-B7DB-24AF5D70AA23">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ADDRESS" id="53DD5F68-886F-F003-322D-7B751494E473">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TEL" id="8E60D31C-4FAB-A4A1-CBC0-861C450F15E9">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMAIL" id="D4016061-7C8F-3BC3-E364-D8ABD4247974">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="NUM" id="DB0A3A98-EDC1-A25A-AA37-032F28489D7A">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="EMAIL" id="07C8F1B4-30B4-CE39-FB50-92E97B426DC1">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:07 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<schemaObject>B65F6B08-3D2B-CFE2-34BB-F525C802B9AA</schemaObject>
+<segment>C94E04D2-A7F6-AFD7-CC0E-E3AC915CFD5D</segment>
+<tableSpace>7E80DF94-CC23-AE9B-F19A-2AE0415236B3</tableSpace>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="MEMBER_PK" id="81126491-66B4-DA30-4B10-6D60383D5083">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:07 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<schemaObject>B65F6B08-3D2B-CFE2-34BB-F525C802B9AA</schemaObject>
+<segment>C94E04D2-A7F6-AFD7-CC0E-E3AC915CFD5D</segment>
+<tableSpace>7E80DF94-CC23-AE9B-F19A-2AE0415236B3</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="MEMBER_PK" id="53117FE7-448B-58ED-D06F-ACC9EB6190D8">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:07 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<segment>C94E04D2-A7F6-AFD7-CC0E-E3AC915CFD5D</segment>
+<tableSpace>7E80DF94-CC23-AE9B-F19A-2AE0415236B3</tableSpace>
+<existingIndex>81126491-66B4-DA30-4B10-6D60383D5083</existingIndex>
+<indexSegment>C94E04D2-A7F6-AFD7-CC0E-E3AC915CFD5D</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="EMAIL" id="81DECCD5-DE44-86A7-5242-B386D0054170">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:07 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<segment>C94E04D2-A7F6-AFD7-CC0E-E3AC915CFD5D</segment>
+<tableSpace>7E80DF94-CC23-AE9B-F19A-2AE0415236B3</tableSpace>
+<existingIndex>07C8F1B4-30B4-CE39-FB50-92E97B426DC1</existingIndex>
+<indexSegment>C94E04D2-A7F6-AFD7-CC0E-E3AC915CFD5D</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev20c>

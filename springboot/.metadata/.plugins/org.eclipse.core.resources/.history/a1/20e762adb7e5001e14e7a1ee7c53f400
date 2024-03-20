@@ -1,0 +1,34 @@
+package com.board.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.board.domain.MenuVo;
+import com.board.mapper.MenuMapper;
+
+@Controller
+@RequestMapping("/Menus")
+public class MenuController {
+
+	@Autowired
+	private MenuMapper menuMapper;
+	
+	@RequestMapping("/WriteForm")
+	public  String  WriteForm() {
+
+		return  "menus/writeform";    
+	}
+	
+	@RequestMapping("/Write")
+	public String Write(MenuVo menuVo) {
+	    menuMapper.insertMenu();
+	    return "menus/list";
+	}
+	@RequestMapping("/List")
+	public  String  List() {
+//		menuMapper.viewMenu();
+		return  "menus/list";    
+	}
+
+}

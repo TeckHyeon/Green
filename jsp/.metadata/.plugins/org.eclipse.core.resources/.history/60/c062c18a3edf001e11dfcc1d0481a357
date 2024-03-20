@@ -1,0 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+String uid = request.getParameter("userid");
+String uwd = request.getParameter("passwd");
+out.print("아이디 : " + uid + "\n");
+out.print("비밀번호 : " + uwd);
+%>

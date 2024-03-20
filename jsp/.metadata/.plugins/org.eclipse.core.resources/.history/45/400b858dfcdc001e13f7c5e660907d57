@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+   window.onload = function () {
+   
+      const   btnOkEl = document.getElementById('btnOk');
+      let html = '';
+      btnOkEl.onclick = function() {
+         //alert('ok Click');
+         let byear = 1999;
+         let age   = 26;
+         let adult = '성인';
+         let ddi   = '토끼';
+         html = `<ul>
+             <li>태어난 연도:${byear}</li>
+             <li>나이:${age}</li>
+             <li>성인:${adult}</li>
+             <li>띠:${ddi}</li>
+          </ul>`;   // ` 백틱(backtick)
+         result.innerHTML = html; 
+      };  // 익명 함수
+      
+   }
+</script>
+</head>
+<body>
+   <h2>성년 체크</h2>
+   태어난 연도
+   <input type="text" id="birthYear" value="1999" />
+   <button id="btnOk" >Ok</button>
+   <div id="result">
+    
+   </div> 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Input01</title>
+</head>
+<body>
+	<h2>서버에 값을 보낸다</h2>
+	<form action="process01.jsp" method="POST">
+	v1<input type="text" /><br />
+	v2<input type="text" /><br />
+	<input type="submit" value="계산(전송)"/>
+	</form>
+</body>
+</html>

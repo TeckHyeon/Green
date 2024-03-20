@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>로그인 페이지</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            body,
+            html {
+                height: 100%;
+            }
+
+            @font-face {
+                font-family: 'Billabong';
+                src: url("./fonts/billabong.otf") format('woff2');
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+   			 var signin1 = true;
+   			 var signin2 = true;
+   			 var signin3 = true;
+   			 var signin4 = true;
+   			 var signin5 = true;
+   			 
+                $("#userId, #userPw, #userName, #userEmail, #userPhone").keyup(function () {
+                    var userId = $("#userId").val();
+                    var userPw = $("#userPw").val();
+                    var userName = $("#userName").val();
+                    var userEmail = $("#userEmail").val();
+                    var userPhone = $("#userPhone").val();
+                    switch (
+                        !((userId.length >= 5) && (userPw.length >= 6) && (userName.length >= 5) && (userEmail.length >= 5) && (userPhone.length >= 5))
+                    ) {
+                        case true:
+                            $('#btnsignin').prop('disabled', true);
+                            break;
+                        case false:
+                            $('#btnsignin').prop('disabled', false);
+                            break;
+                    }
+                });
+	
+		 $("#userId, #userPw, #userName, #userEmail, #userPhone").blur(function () {
+			
+			 var RegId = /^[a-z0-9]{5,12}$/
+			 var RegPw = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+			 var RegName = /^[a-z]{1}[a-z0-9._-]{5,15}$/;
+			 var RegEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+			 var RegPhone = /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}/;
+             var userId = $("#userId").val();
+             var userPw = $("#userPw").val();
+             var userName = $("#userName").val();
+             var userEmail = $("#userEmail").val();
+             var userPhone = $("#userPhone").val();
+
+			 
+             if (!RegId.test(userId)) {
+                 $("#userId").removeClass("is-valid");
+
+                 $("#userId").addClass("is-invalid");
+
+                 $("#userIdFeedback").removeClass("valid-feedback");
+
+                 $("#userIdFeedback").addClass("invalid-feedback");
+
+                 $("#invalidId").css('display', 'block');
+               
+                var siginin1 = false;
+             } else {
+                 $("#userId").removeClass("is-invalid");
+
+                 $("#userId").addClass("is-valid");
+
+                 $("#userIdFeedback").removeClass("invalid-feedback");
+
+                 $("#userIdFeedback").addClass("valid-feedback");
+
+                 $("#invalidId").css('display', 'none');
+                
+                 var signin1 = true;
+             } 
+             if (!RegPw.test(userPw)) {
+                 $("#userPw").removeClass("is-valid");
+
+                 $("#userPw").addClass("is-invalid");
+
+                 $("#userPwFeedback").removeClass("valid-feedback");
+
+                 $("#userPwFeedback").addClass("invalid-feedback");
+
+                 $("#invalidPw").css('display', 'block');
+               
+                var signin2 = false;
+             } else {
+                 $("#userPw").removeClass("is-invalid");
+
+                 $("#userPw").addClass("is-valid");
+
+                 $("#userPwFeedback").removeClass("invalid-feedback");
+
+                 $("#userPwFeedback").addClass("valid-feedback");
+
+                 $("#invalidPw").css('display', 'none');
+                
+                 var signin2 = true;
+             } 
+             if (!RegName.test(userName)) {
+                 $("#userName").removeClass("is-valid");
+
+                 $("#userName").addClass("is-invalid");
+
+                 $("#userNameFeedback").removeClass("valid-feedback");
+
+                 $("#userNameFeedback").addClass("invalid-feedback");
+
+                 $("#invalidName").css('display', 'block');
+               
+                var signin3 = false;
+             } else {
+                 $("#userName").removeClass("is-invalid");
+
+                 $("#userName").addClass("is-valid");
+
+                 $("#userNameFeedback").removeClass("invalid-feedback");
+
+                 $("#userNameFeedback").addClass("valid-feedback");
+
+                 $("#invalidName").css('display', 'none');
+                
+                 var signin3 = true;
+             } 
+             if (!RegEmail.test(userEmail)) {
+                 $("#userEmail").removeClass("is-valid");
+
+                 $("#userEmail").addClass("is-invalid");
+
+                 $("#userEmailFeedback").removeClass("valid-feedback");
+
+                 $("#userEmailFeedback").addClass("invalid-feedback");
+
+                 $("#invalidEmail").css('display', 'block');
+               
+                var signin4 = false;
+             } else {
+                 $("#userEmail").removeClass("is-invalid");
+
+                 $("#userEmail").addClass("is-valid");
+
+                 $("#userEmailFeedback").removeClass("invalid-feedback");
+
+                 $("#userEmailFeedback").addClass("valid-feedback");
+
+                 $("#invalidEmail").css('display', 'none');
+                
+                 var signin4 = true;
+             } 
+             if (!RegPhone.test(userPhone)) {
+                 $("#userPhone").removeClass("is-valid");
+
+                 $("#userPhone").addClass("is-invalid");
+
+                 $("#userPhoneFeedback").removeClass("valid-feedback");
+
+                 $("#userPhoneFeedback").addClass("invalid-feedback");
+
+                 $("#invalidPhone").css('display', 'block');
+               
+                var signin5 = false;
+             } else {
+                 $("#userPhone").removeClass("is-invalid");
+
+                 $("#userPhone").addClass("is-valid");
+
+                 $("#userPhoneFeedback").removeClass("invalid-feedback");
+
+                 $("#userPhoneFeedback").addClass("valid-feedback");
+
+                 $("#invalidPhone").css('display', 'none');
+                
+                 var signin5 = true;
+             } 
+             
+         $("#btnsignin").on("click", function(){
+        	if(!signin1 || !signin2 || !signin3 || !signin4 || !signin5) {
+        		console.log(signin1);
+        		console.log(signin2);
+        		console.log(signin3);
+        		console.log(signin4);
+        		console.log(signin5);
+        		return false;
+        	} else {
+        		console.log(signin1);
+        		$("#signinform").submit();
+        		return true;
+        	}
+         });
+	});
+
+                
+               
+            });
+        </script>
+    </head>
+    <body style="background-color: #FAFAFA;">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-4 text-center">
+                    <form action="#" method="post" id="signinform">
+                        <div class="card row" style="height: auto; width: 24em;">
+                            <h1
+                                class="mt-3 mb-2 display-2"
+                                id="logo"
+                                style="font-family: Billabong, sans-serif;">GameTalk</h1>
+                            <h3 class="mb-4">가입하기</h3>
+                            <hr class="mx-auto" style="width: 90%;">
+                            <div class="form-floating my-1 mx-auto" style="width: 22em">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="userId"
+                                    name="userId"
+                                    placeholder="아이디를 입력해주세요"
+                                    style="height: 3em; background-color: #FAFAFA;"
+                                    required="required">
+                                <label class="mx-2 text-muted" for="userId">아이디를 입력해주세요.</label>
+                                <div id="userIdFeedback" class=""></div>
+                            </div>
+                            <div class="form-floating my-1 mx-auto" style="width: 22em">
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="userPw"
+                                    name="userPw"
+                                    placeholder="비밀번호를 입력해주세요"
+                                    style="height: 3em; background-color: #FAFAFA;">
+                                <label class="mx-2 text-muted" for="userPw">비밀번호를 입력해주세요.</label>
+                            </div>
+                            <div class="form-floating my-1 mx-auto" style="width: 22em">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="userName"
+                                    name="userName"
+                                    placeholder="비밀번호를 입력해주세요"
+                                    style="height: 3em; background-color: #FAFAFA;">
+                                <label class="mx-2 text-muted" for="userName">이름(닉네임)을 입력해주세요.</label>
+                            </div>
+                            <div class="form-floating my-1 mx-auto" style="width: 22em">
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="userEmail"
+                                    name="userEmail"
+                                    placeholder="비밀번호를 입력해주세요"
+                                    style="height: 3em; background-color: #FAFAFA;">
+                                <label class="mx-2 text-muted" for="userEmail">이메일을 입력해주세요.</label>
+                            </div>
+                            <div class="form-floating my-1 mx-auto" style="width: 22em">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="userPhone"
+                                    name="userPhone"
+                                    placeholder="비밀번호를 입력해주세요"
+                                    style="height: 3em; background-color: #FAFAFA;">
+                                <label class="mx-2 text-muted" for="userPhone">전화번호를 입력해주세요.</label>
+                            </div>
+                            <div class="my-4 d-grid gap-3">
+                                <button
+                                    type="submit"
+                                    id="btnsignin"
+                                    name="btnsignin"
+                                    class="btn btn-primary mx-auto"
+                                    style="background-color: #0095F6; width: 20em;"
+                                    disabled="disabled">가입하기</button>
+                            </div>
+                            <div style="display: none;" id="invalidId">
+                                <p class="text-danger">사용할 수 없는 ID입니다.</p>
+                            </div>
+                            <div style="display: none;" id="invalidPw">
+                                <p class="text-danger">비밀번호는 숫자+영문자+특수문자 조합으로 8자리 이상 사용해야 합니다.</p>
+                            </div>
+                            <div style="display: none;" id="invalidName">
+                                <p class="text-danger">닉네임은 영소문자+숫자+._-만 입력가능하며 반드시 영소문자로 시작해야합니다. </p>
+                            </div>
+                            <div style="display: none;" id="invalidEmail">
+                                <p class="text-danger">이메일 주소를 확인해주세요.</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

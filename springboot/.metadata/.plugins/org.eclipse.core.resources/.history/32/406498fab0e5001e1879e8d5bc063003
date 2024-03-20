@@ -1,0 +1,19 @@
+package com.board.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.board.domain.MenuVo;
+
+@Mapper
+public interface MenuMapper {
+	public void  boardInsert(MenuVo board); // mapper.xml id="boardInsert"
+}
+
+
+
+
+
+
+
+
+

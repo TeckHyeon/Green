@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	#div1 {
+	color: blue;}
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Hello 하이</h2>
+<div>현재 시간 출력</div>
+<div id="div1"></div>
+<script>
+ let today = new Date();
+ let now = today.toLocaleString()
+ alert(now);
+ // 필요한 element를 찾는다.
+ let div1 = document.getElementById('div1');
+ div1.InnerHTML= now;
+</script>
+</body>
+</html>

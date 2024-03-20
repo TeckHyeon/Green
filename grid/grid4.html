@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+  }
+
+  h1,
+  p {
+    margin: 20px;
+  }
+
+  main {
+    display: grid;
+    grid-template-rows: 150px 400px 100px;
+    grid-template-columns: 30% 70%;
+  }
+
+  header {
+    grid-column: span 2;
+    background-color: #666;
+    color: white;
+    font-size: 30px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav {
+    background-color: #ccc;
+    padding: 30px 15px;
+  }
+
+  article {
+    background-color: #f1f1f1;
+    padding: 30px 15px;
+  }
+
+  p:first-of-type(1) {
+    margin-top: 0;
+  }
+
+  footer {
+    background-color: #777;
+    color: white;
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<body>
+  <main>
+    <header>
+      <h2>Cities</h2>
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <a href="">London</a>
+        </li>
+        <li>
+          <a href="">Paris</a>
+        </li>
+        <li>
+          <a href="">Seoul</a>
+        </li>
+      </ul>
+    </nav>
+    <article>
+      <p>London</p>
+      <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a
+        metropolitan
+        area of over 13 million inhabitants.</p>
+      <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to
+        its
+        founding by the Romans, who named it Londinium.</p>
+      <img src="../images/5.svg" alt="" width="100px">
+    </article>
+
+    <footer>
+      <p>Footer</p>
+    </footer>
+  </main>
+</body>
+
+</html>

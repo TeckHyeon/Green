@@ -1,0 +1,173 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="334D9F47-79C4-6838-09E9-8380EC2A3116" schemaObject="B65F6B08-3D2B-CFE2-34BB-F525C802B9AA" name="MEMBER">
+<sourceConnName>study01</sourceConnName>
+<sourceObjSchema>STUDY01</sourceObjSchema>
+<sourceObjName>MEMBER</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NUM" id="DB0A3A98-EDC1-A25A-AA37-032F28489D7A">
+<sourceConnName>study01</sourceConnName>
+<sourceObjSchema>MEMBER</sourceObjSchema>
+<sourceObjName>NUM</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="4F726990-52B1-9D6B-B7DB-24AF5D70AA23">
+<sourceConnName>study01</sourceConnName>
+<sourceObjSchema>MEMBER</sourceObjSchema>
+<sourceObjName>NAME</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TEL" id="8E60D31C-4FAB-A4A1-CBC0-861C450F15E9">
+<sourceConnName>study01</sourceConnName>
+<sourceObjSchema>MEMBER</sourceObjSchema>
+<sourceObjName>TEL</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL" id="D4016061-7C8F-3BC3-E364-D8ABD4247974">
+<sourceConnName>study01</sourceConnName>
+<sourceObjSchema>MEMBER</sourceObjSchema>
+<sourceObjName>EMAIL</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>320 BYTE</dataTypeSize>
+<ownDataTypeParameters>320 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADDRESS" id="53DD5F68-886F-F003-322D-7B751494E473">
+<sourceConnName>study01</sourceConnName>
+<sourceObjSchema>MEMBER</sourceObjSchema>
+<sourceObjName>ADDRESS</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>320 BYTE</dataTypeSize>
+<ownDataTypeParameters>320 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BIRTH" id="4A1C3F4D-B3CA-83F6-BE59-B7B3FC84B21E">
+<sourceConnName>study01</sourceConnName>
+<sourceObjSchema>MEMBER</sourceObjSchema>
+<sourceObjName>BIRTH</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="POINT" id="120F9525-C67D-C818-2E20-504E87C0653A">
+<sourceConnName>study01</sourceConnName>
+<sourceObjSchema>MEMBER</sourceObjSchema>
+<sourceObjName>POINT</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:05 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<defaultValue>1000</defaultValue>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="53117FE7-448B-58ED-D06F-ACC9EB6190D8" name="MEMBER_PK">
+<sourceConnName>study01</sourceConnName>
+<sourceObjSchema>STUDY01</sourceObjSchema>
+<sourceObjName>MEMBER_PK</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:07 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DB0A3A98-EDC1-A25A-AA37-032F28489D7A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="81DECCD5-DE44-86A7-5242-B386D0054170" name="EMAIL">
+<sourceConnName>study01</sourceConnName>
+<sourceObjSchema>STUDY01</sourceObjSchema>
+<sourceObjName>EMAIL</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:07 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4016061-7C8F-3BC3-E364-D8ABD4247974"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="07C8F1B4-30B4-CE39-FB50-92E97B426DC1" schemaObject="B65F6B08-3D2B-CFE2-34BB-F525C802B9AA" name="EMAIL">
+<sourceConnName>study01</sourceConnName>
+<sourceObjSchema>STUDY01</sourceObjSchema>
+<sourceObjName>EMAIL</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:07 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4016061-7C8F-3BC3-E364-D8ABD4247974"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="81126491-66B4-DA30-4B10-6D60383D5083" schemaObject="B65F6B08-3D2B-CFE2-34BB-F525C802B9AA" name="MEMBER_PK">
+<sourceConnName>study01</sourceConnName>
+<sourceObjSchema>STUDY01</sourceObjSchema>
+<sourceObjName>MEMBER_PK</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-23 00:45:07 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DB0A3A98-EDC1-A25A-AA37-032F28489D7A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

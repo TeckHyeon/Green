@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p>a : ${attrName.getA()} (@ModelAttribute)</p>
+<p>b : ${attrName.getB()} (@ModelAttribute)</p>
+<p>a : ${a} (model.getAttribute("a"))</p>
+<p>b : ${b} (model.getAttribute("b"))</p>
+<p><a href="/">HOME</a>
+</body>
+</html>

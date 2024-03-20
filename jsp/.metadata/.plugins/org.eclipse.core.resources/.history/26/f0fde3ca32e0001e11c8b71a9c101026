@@ -1,0 +1,71 @@
+package servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+// @ : anootation -- 컴파일에게 정보를 제공한다.
+// 바로 다음 줄에 있는 함수나 클래스에 영향을 준다,
+// @WebServlet("/process02") -- 요청 주소
+@WebServlet("/process02")
+public class Process02 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// 1. 넘어온 값을 받는다
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=UTF-8");
+		double v1 = Double.parseDouble(request.getParameter("v1"));
+		double v2 = Double.parseDouble(request.getParameter("v2"));
+		String op = request.getParameter("op");
+		String name = request.getParameter("name");
+		double result = 0.0;
+
+		// 2. 계산한다.
+		/*
+		switch (op) {
+		case "-선택-":
+			break;
+		case "+":
+			result = v1 + v2;
+			break;
+		case "-":
+			result = v1 - v2;
+			break;
+		case "*":
+			result = v1 * v2;
+			break;
+		case "/":
+			result = v1 / v2;
+			break;
+
+		default:
+			result = 0.0;
+			break;
+		}
+*/
+		Calc c1 = new Calc();
+		int v = c1.add(v1, v2);
+		
+		// 3. html로 출력한다
+		// text/html, alpplication/xml, application/json
+		System.out.println(result);
+		PrintWriter out = response.getWriter();
+		out.println("<h2>결과(서블릿)</h2>\r\n" + "	<h2>\r\n" + result + "	</h2>" + "	<h2>\r\n" + name + "	</h2>");
+		out.flush();
+		//out.close();
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

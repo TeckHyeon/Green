@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+</head>
+
+<body>
+  <h2>전구</h2>
+  <img src="images/pic_bulboff.gif" alt="" id="bulb" onclick="bulb_onoff()" />
+  <script>
+    function bulb_onoff() {
+      let bulb = document.getElementById('bulb');
+      if (bulb.src.indexOf('off')>-1) {
+        bulb.src = 'images/pic_bulbon.gif';
+      } else {
+        bulb.src = 'images/pic_bulboff.gif';
+      }
+      console.log(bulb);
+      console.dir(bulb);
+    }
+  </script>
+</body>
+
+</html>

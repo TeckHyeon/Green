@@ -1,0 +1,14 @@
+* {
+  padding:0px; margin:0px; 
+  box-sizing: border-box;
+}
+
+ul, li{
+ list-style-type: none;
+}
+
+#main {
+ width:80%;
+ margin:0 auto;
+ /* border:1px solid red; */
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      /*border-box : margin, padding 있어도 width는 변하지 않는다 */
+      box-sizing: border-box;
+      /*content-box : width margin padding border width = 전체 넓이 결정 */
+    }
+
+    p,
+    div {
+      border: solid blue;
+      color: red;
+
+    }
+
+    #p2 {
+      color: chocolate;
+    }
+
+    #p3 {
+      color: orange;
+    }
+
+    /* margin-top, margin-right, margin-bottom, margin-left; */
+    div {
+      width: 300px;
+      height: 300px;
+    }
+
+    #div1 {
+      margin: 20px 0px;
+      /* == 10px 0px 10px 0px */
+      padding: 30px;
+    }
+
+    #div2 {
+      margin: 50px 0px;
+      padding: 100px;
+    }
+
+    .bg1 {
+      background-color: cyan;
+    }
+
+    span {
+      background-color: bisque;
+      width: 300px;
+      height: 300px;
+      display: block;
+    }
+
+    /*
+    id : # id 한 페이지에 중복되면 안됨
+    class : .
+    */
+  </style>
+</head>
+
+<body>
+  <h2>width, height</h2>
+  <!-- p*3 엔터하면 p 태그 3개가 자동완성 
+  div#div$*3 엔터 하면 #"" 로 id가 부여된 div 3개가 완성
+  -->
+  <p id="p1" style="color: gold;">문단</p>
+  <p id="p2">문단</p>
+  <p id="p3" class="bg1">문단</p>
+  <hr />
+  <div id="div1" class="bg1">div1</div>
+  <div id="div2" class="bg1">div2</div>
+  <div id="div3">div3</div>
+  <span>span1</span>
+  <span>span2</span>
+</body>
+
+</html>

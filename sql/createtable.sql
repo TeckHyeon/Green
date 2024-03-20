@@ -1,0 +1,14 @@
+CREATE TABLE MEMBER 
+(
+  번호 NUMBER(6) NOT NULL 
+, 이름 VARCHAR2(30) 
+, 전화 VARCHAR2(20) 
+, 이메일 VARCHAR2(320) 
+, 성별 VARCHAR2(1) DEFAULT 'M' 
+, 가입일 DATE 
+, CONSTRAINT MEMBER_PK PRIMARY KEY 
+  (
+    번호 
+  )
+  ENABLE 
+);

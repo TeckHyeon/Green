@@ -1,0 +1,1 @@
+INSERT INTO MEMBER (num, name, tel, email, address, birth, point) values (5, '가나다', '010-7777-6666', 'knd86@naver.com', '광주시', TO_DATE(('1986-12-31 18:55:55'), 'YYYY-MM-DD HH24:MI:SS'),8000);

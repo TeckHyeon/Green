@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Input01</title>
+</head>
+<body>
+	<h2>서버에 값을 보낸다</h2>
+	<form action="http://localhost:8080/JSPPrj01/process02" method="POST">
+	v1<input type="text" name="v1" /><br />
+	v2<input type="text" name="v2" /><br />
+	<select id="op" name="op">
+					<option value="-선택-">-선택-</option>
+					<option value="+">+</option>
+					<option value="-">-</option>
+					<option value="*">*</option>
+					<option value="/">/</option>
+				</select>
+	<input type="submit" value="계산(전송)"/>
+	</form>
+	
+	<a href="http://localhost:8080/JSPPrj01/process02">전송</a>
+</body>
+</html>

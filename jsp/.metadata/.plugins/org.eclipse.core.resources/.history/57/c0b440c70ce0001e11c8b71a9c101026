@@ -1,0 +1,51 @@
+package ex01;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+ 
+@WebServlet("/process02")
+public class Process02 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+ 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html; charset=UTF-8");
+		double v1 = Double.parseDouble(request.getParameter("v1"));
+		double v2 = Double.parseDouble(request.getParameter("v2"));
+		String op = request.getParameter("op");
+		double result = 0.0;
+		switch (op) {
+		case "-선택-":
+			break;
+		case "+":
+			result = v1 + v2;
+			break;
+		case "-":
+			result = v1 - v2;
+			break;
+		case "*":
+			result = v1 * v2;
+			break;
+		case "/":
+			result = v1 / v2;
+			break;
+
+		default:
+			result = 0.0;
+			break;
+		}
+		PrintWriter out = response.getWriter();
+		out.print(result);
+	}
+ 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

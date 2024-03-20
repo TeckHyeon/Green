@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="SchemaObject" objectID="BFECC12B-A7A5-A31C-B235-D01CC66C4EB4" name="MDSYS" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.SchemaObject" propertyParentId="E2C0A636-AC14-FDAC-72A3-ED0293706482" propertySourceId="" propertyTargetId=""/>
+   <object objectType="SchemaObject" objectID="F8629B57-5A5F-EB20-DF6E-C0E127A2F647" name="STUDY01" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.SchemaObject" propertyParentId="E2C0A636-AC14-FDAC-72A3-ED0293706482" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Table" objectID="DD61AE77-A693-863A-0F80-8A061E71285B" name="MEMBER" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.Table" propertyParentId="E2C0A636-AC14-FDAC-72A3-ED0293706482" propertySourceId="" propertyTargetId=""/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

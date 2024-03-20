@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="ABFCA752-DF58-D754-9B77-468A1C89E618" containerWithKeyObject="F158C464-DB0A-485B-B7E3-5FCB66505A4F" localFKIndex="8C7CD04B-8CB3-FF70-4D99-1E0DA111612E" name="EMP_MANAGER_FK">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>EMP_MANAGER_FK</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-22 06:30:59 UTC</createdTime>
+<ownerDesignName>dmd</ownerDesignName>
+<referredTableLongName>HR.EMPLOYEES</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>F158C464-DB0A-485B-B7E3-5FCB66505A4F</referredTableID>
+<keyObject>B64AD637-51F8-8C85-A805-BD03C52AC98E</keyObject>
+<referredKeyID>B64AD637-51F8-8C85-A805-BD03C52AC98E</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>EMPLOYEE_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

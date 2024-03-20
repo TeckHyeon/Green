@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* body {
+      background-image: url(./images/paper.gif);
+      background-repeat: repeat-y;
+    } */
+
+    table,
+    td {
+      border: 1px solid #111;
+    }
+
+
+
+    table {
+      margin: 0 auto;
+      width: 50%;
+    }
+
+    td:first-child {
+      width: 30%;
+      text-align: center;
+      font-weight: bold;
+      background-image: url(./images/paper.gif);
+    }
+
+    td:last-child {
+      width: 50%;
+    }
+
+    .star {
+      color: red;
+    }
+
+    td:last-child>input[type=text] {
+      width: 70%;
+    }
+
+    [type=radio],
+    [type=checkbox] {
+      accent-color: #2196f3;
+    }
+
+    input[type=password] {
+      width: 90%;
+      margin: 1px;
+    }
+  </style>
+  <!-- 자바스크립트 -->
+  <script>
+    function func() {
+      // alert('사용가능한 아이디입니다.');
+      // submit 버튼을 찾는다
+      const btnEl = document.getElementById("btnSubmit");
+      alert(btnEl.disabled);
+      btnEl.disabled = false;
+    }
+
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <fieldset>
+      <legend style="text-align: left;">회원등록</legend>
+      <form action="ex03.html" id="signin" method="post">
+        <table>
+          <caption>
+            <h3 style="margin-bottom: -1px; text-align: center;">회원가입 서식 작성</h3>
+          </caption>
+          <tr>
+            <td><span class="star">*</span>이름</td>
+            <td><input type="text" name="userName" required></td>
+          </tr>
+          <tr>
+            <td><span class="star">*</span>사진</td>
+            <td><input type="file" value="파일 선택" name="userFile" required></td>
+          </tr>
+          <tr>
+            <td><span class="star">*</span>아이디</td>
+            <td><input type="text" placeholder="아이디는 8글자 이상입니다" name="userId" required>
+              <input type="button" value="중복확인" onclick="func()" title="눌러주세요.">
+            </td>
+          </tr>
+          <tr>
+            <td><span class="star">*</span>비밀번호</td>
+            <td><input type="password" placeholder="대소문자와 숫자, 특수문자를 적어도 하나씩 사용해야 합니다." name="userPw" required></td>
+          </tr>
+          <tr>
+            <td><span class="star">*</span>비밀번호 확인</td>
+            <td><input type="password" name="userPw2" required></td>
+          </tr>
+          <tr>
+            <td>이메일</td>
+            <td><input type="email" placeholder="@를 포함한 주소를 입력하세요" name="userMail"></td>
+          </tr>
+          <tr>
+            <td><span class="star">*</span>생년월일</td>
+            <td><input type="date" placeholder="연도-월-일" name="userBirth" required></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="star">*</span>성별
+            </td>
+            <td required>
+              <input type="radio" name="userGender" value="M" id="male" checked="checked">
+              <label for="male">남자</label>
+              <input type="radio" name="userGender" value="F" id="female">
+              <label for="female">여자</label>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="star">*</span>연락처</td>
+            <td><input type="tel" name="userTel" required></td>
+          </tr>
+          <tr>
+            <td><span class="star">*</span>주소</td>
+            <td>
+              <label for="">우편번호 : </label>
+              <input type="text" style="margin-left: 21px;" required><br>
+
+              <label for="">도로명 주소 : </label>
+              <input type="text" required><br>
+
+              <label for="">상세주소 : </label>
+              <input type="text" style="margin-left: 21px;" required>
+
+            </td>
+          </tr>
+          <tr>
+            <td>가입경로</td>
+            <td>
+              <select name="regpath">
+                <option value="1">지인</option>
+                <option value="2">인터넷</option>
+                <option value="3">잡지</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>취미</td>
+            <td>
+              <select name="hobby" size="3">
+                <option value="1" selected>농구</option>
+                <option value="2">배구</option>
+                <option value="3">축구</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>관심 분야</td>
+            <td>
+              <label><input type="checkbox" name="userInt" value="HTML" checked="checked" id="userInt1">HTML</label>
+              <label><input type="checkbox" name="userInt" value="CSS" id="userInt2">CSS</label>
+              <label><input type="checkbox" name="userInt" value="Javascript" id="userInt3">Javascript</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              이메일 수신여부
+            </td>
+            <td>
+              <input type="radio" name="emailCheck" value="Y" id="emailYes" checked="checked">
+              <label for="yes">예</label>
+              <input type="radio" name="emailCheck" value="N" id="emailNo">
+              <label for="no">아니요</label>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center; background-image: none;">
+              <input type="submit" value="가입" disabled id="btnSubmit">
+              <input type="reset" value="다시 입력">
+            </td>
+          </tr>
+        </table>
+    </fieldset>
+
+    </form>
+  </div>
+</body>
+
+</html>

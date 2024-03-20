@@ -1,0 +1,32 @@
+<%@page import="db.MemberVo"%>
+<%@page import="db.DBHandler"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("utf-8");
+String mid = request.getParameter("mid");
+DBHandler db = new DBHandler();
+MemberVo vo = db.getMember(Integer.parseInt(mid));
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="" method="GET">
+		<table>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="name" /></td>
+				<td>전화번호</td>
+				<td><input type="text" name="phone" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="회원가입" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

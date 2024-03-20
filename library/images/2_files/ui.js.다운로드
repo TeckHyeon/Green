@@ -1,0 +1,610 @@
+// usage: log('inside coolFunc', this, arguments);
+// paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
+// window.log = function f(){ log.history = log.history || []; log.history.push(arguments); if(this.console) { var args = arguments, newarr; args.callee = args.callee.caller; newarr = [].slice.call(args); if (typeof console.log === 'object') log.apply.call(console.log, console, newarr); else console.log.apply(console, newarr);}};
+
+window.log = function f(){}; // for production
+
+// make it safe to use console.log always
+(function(a){function b(){}for(var c="assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn".split(","),d;!!(d=c.pop());){a[d]=a[d]||b;}})
+(function(){try{console.log();return window.console;}catch(a){return (window.console={});}}());
+
+/*
+ *  Project: a Small library
+ *  ui.js
+ */
+// set global namespace
+var __ = window.__ || {};
+
+// set global objects
+$(function() {
+    "use strict";
+
+    __.$window = $(window);
+
+    __.$body = $('body');
+    __.$wrap = $('#wrap');
+    __.$GNB = $('#gnb');
+    __.$sidenav = $('#sidenav');
+    __.$header = $('#header');
+    __.$lHeader = $('.l-header', __.$header);
+    __.$main = $('#main');
+    __.$footer = $('#footer');
+});
+
+/**
+ * navigation
+ */
+function nav(d1, d2) {
+    var $items = $('.gnb-item', __.$GNB),               // 1 depth items
+        $a = $('.gnb-item a', __.$GNB),                 // all links in GNB
+        $sub = $('.gnb-sub-list', __.$GNB),             // 2 depth list
+        $lastItem = null,                               // last selected item
+        $selected = $(),                                // selected 1 depth item
+        $selectedSub = $(),                             // selected 2 depth item
+
+        $btnSidenav = $('#sidenav-open'),               // sidenav open button
+        $sideItems = $('.sidenav-item', __.$sidenav),   // sidenav 1 depth items
+        $sideA = $('.sidenav-item a', __.$sidenav),     // all links in sidenav
+        $sideSub = $('.sidenav-sub-list', __.$sidenav), // sidenav 1 depth items
+        $sideSelected = $(),                            // selected 1 depth item
+        $sideSelectedSub = $(),                         // selected 2 depth item
+
+        headerWidth = __.$lHeader.outerWidth(),         // header width
+        headerLeft = __.$lHeader.offset().left;         // header left offset
+
+    /**
+     * GNB methods
+     */
+    var GNB = {
+        // show sub item
+        show: function() {
+            log('[GNB] show item');
+
+            var $self = $(this).is('.gnb-item') ? $(this) : $(this).closest('.gnb-item');
+
+            $lastItem = $self;
+
+            $self.addClass('is-active').siblings().removeClass('is-active');
+            __.$header.addClass('is-nav');
+            $selected.removeClass('is-current');
+        },
+
+        // hide sub item
+        hide: function() {
+            log('[GNB] hide item');
+
+            var $self = $(this).is('.gnb-item') ? $(this) : $(this).closest('.gnb-item');
+
+            $self.removeClass('is-active');
+            __.$header.removeClass('is-nav');
+            $selected.addClass('is-current');
+        },
+
+        // show sub item
+        bgRollover: function() {
+            log('[GNB] rollover bg');
+
+            $lastItem.addClass('is-active').siblings().removeClass('is-active');
+            __.$header.addClass('is-nav');
+            $selected.removeClass('is-current');
+        },
+        // hide sub item
+        bgRollout: function() {
+            log('[GNB] rollout bg');
+
+            $items.removeClass('is-active');
+            __.$header.removeClass('is-nav');
+            $selected.addClass('is-current');
+        },
+
+        // adjust sub menu
+        adjust: function() {
+            // adjust sub lists
+            $sub.each(function(idx, el) {
+                var $self = $(el),
+                    width = 0,
+                    parentWidth = $self.closest('.gnb-item').outerWidth(), // 1 depth item width
+                    pad = parseFloat($self.find('a').eq(0).css('padding-right')), // sub item right padding
+                    left = 0,
+                    diff = 0;
+
+                // 자식 요소 width 합계로 sub list 전체 width 구하기
+                $self.children('.gnb-sub-item').each(function(_idx, _el) {
+                    width += $(_el).outerWidth(true) + 1;
+                });
+
+                // width 설정, 중앙정렬
+                $self.css({
+                    'width': width,
+                    'left': (width - parentWidth) / -2
+                });
+
+                // sub list가 wrapper를 넘어갈 때 오른쪽으로 정렬
+                left = $self.offset().left - headerLeft; // sub list의 left offset 구하기
+                diff = (left + width) - headerWidth - pad; // wrap 사이즈보다 초과하는 길이 구하기
+                // log('idx: ' + idx + ', diff: ' + diff + ', left: ' + left + ', width: ' + width + ', headerWidth: ' + headerWidth + ', pad: ' + pad)
+
+                if(diff > 0) {
+                    // log('   css left: ' + $self.css('left'));
+                    $self.css('left', parseFloat($self.css('left')) - diff);
+                }
+            });
+        },
+
+        // initializing
+        init: function() {
+            // for Legacy browser (IE7)
+            if(!Modernizr.generatedcontent || $('.legacy-browser').length) {
+                $items.find('> a').append('<i class="gnb-item-arr" />');
+            }
+
+            // set selected item
+            if(d1 > 0 && $items.eq(d1 - 1).length) {
+                $selected = $items.eq(d1 - 1).addClass('is-current');
+
+                if(d2 > 0 && $selected.find('.gnb-sub-item').eq(d2 - 1).length) {
+                    $selectedSub = $selected.find('.gnb-sub-item').eq(d2 - 1).addClass('is-current');
+                }
+            }
+
+            // adjust at showing
+            __.$window.on('resize.adjust', function() {
+                if(__.$GNB.css('display') !== 'block') return;
+
+                log('[GNB] adjusted');
+
+                headerLeft = __.$lHeader.offset().left; // header left offset
+                headerWidth = __.$lHeader.outerWidth();
+
+                GNB.adjust();
+
+                __.$window.off('resize.adjust');
+            }).resize();
+
+            // event binding
+            $items.hover(this.show, this.hide);
+            __.$header.find('.gnb-bg').hover(this.bgRollover, this.bgRollout);
+            $a.on({
+                'focusin': this.show,
+                'focusout': this.hide
+            });
+        }
+    };
+
+    /**
+     * Sidenav methods (for mobile)
+     */
+    var Sidenav = {
+        // open sidenav
+        open: function(event) {
+            log('[Sidenav] open');
+
+            // 이미 열려있을 때 닫기
+            if(__.$body.hasClass('is-sidenav')) {
+                Sidenav.close();
+            } else {
+                __.$body.addClass('is-sidenav');
+
+                /*try {
+                    if(event.data.isButton) {
+                        $('a', __.$sidenav).eq(0).focus();
+                    }
+                } catch(e) {}*/
+
+                // 열린 상태에서 resize할 때 닫기
+                __.$window.on('resize.close', function() {
+                    if(__.$sidenav.css('display') !== 'block') {
+                        Sidenav.close();
+                    }
+                }).resize();
+
+                // 컨텐츠 영역을 click하여 닫기
+                setTimeout(function() {
+                    __.$wrap.on('click.close', {isWrap: true}, Sidenav.close);
+                }, 1);
+            }
+
+            try {
+                event.preventDefault();
+                event.stopPropagation();
+            } catch(e) {}
+        },
+
+        // close sidenav
+        close: function(event) {
+            log('[Sidenav] close');
+
+            __.$body.removeClass('is-sidenav');
+            __.$wrap.off('click.close');
+            __.$window.off('resize.close');
+            $btnSidenav.focus();
+
+            try {
+                if(event.data.isWrap) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            } catch(e) {}
+        },
+
+        // show sub item
+        show: function() {
+            log('[Sidenav] show item');
+
+            var $item = $(this).closest('.sidenav-item');
+
+            $item
+                .addClass('is-active')
+                .siblings()
+                .removeClass('is-active');
+            $sideSelected.removeClass('is-current');
+        },
+
+        // hide sub items
+        hide: function() {
+            log('[Sidenav] hide item');
+
+            $sideItems.removeClass('is-active');
+            $sideSelected.addClass('is-current');
+        },
+
+        /*focusin: function() {
+            isSidenavFocused = true;
+
+            if(!__.$body.hasClass('is-sidenav')) {
+                Sidenav.open();
+            }
+        },
+
+        focusout: function() {
+            isSidenavFocused = false;
+
+            setTimeout(function() {
+                log('isSidenavFocused: ' + isSidenavFocused);
+                Sidenav.close();
+            }, 1);
+        },*/
+
+        // folding sub lists
+        fold: function() {
+            // init style
+            $sideSub.each(function(idx, el) {
+                var $self = $(el);
+
+                $self
+                    .data('height', $self.outerHeight())
+                    .css('margin-top', -$self.data('height'));
+
+                setTimeout(function() {
+                    $self.addClass('sidenav-sub-list-trans');
+                    __.$body.addClass('sidenav-loaded');
+                }, 1);
+            });
+
+        },
+
+        // initializing
+        init: function() {
+            // fold items
+            __.$window.on('resize.fold', function() {
+                if(__.$sidenav.css('display') !== 'block') return;
+
+                log('[Sidenav] folded');
+                Sidenav.fold();
+                __.$window.off('resize.fold');
+            }).resize();
+
+            // set selected item
+            if(d1 > 0 && $sideItems.eq(d1 - 1).length) {
+                $sideSelected = $sideItems.eq(d1 - 1).addClass('is-current');
+
+                if(d2 > 0 && $sideSelected.find('.sidenav-sub-item').eq(d2 - 1).length) {
+                    $sideSelectedSub = $sideSelected.find('.sidenav-sub-item').eq(d2 - 1).addClass('is-current');
+                }
+            }
+
+            // event binding
+            $btnSidenav.on('click', {isButton: true}, this.open);
+            $sideItems.find('> a').on('click', this.show);
+            $sideA.on({
+                'focusin': this.show,
+                'focusout': this.hide
+            });
+            /*$('a', __.$sidenav).on({
+                'focusin': this.focusin,
+                'focusout': this.focusout
+            });*/
+        }
+    }
+
+    GNB.init();
+    Sidenav.init();
+}
+
+/**
+ * scroll to top
+ *
+ * 페이지 처음으로 스크롤
+ */
+function scrollToTop(offset) {
+    var $btnTop = $('.footer-top');
+
+    // toggle top button
+    function onScroll() {
+        if($(this).scrollTop() > offset) $btnTop.stop(true).fadeIn(200);
+        else $btnTop.stop(true).fadeOut(200);
+    }
+
+    // toggle at resize
+    __.$window.on('resize', function() {
+        if(parseInt($btnTop.css('z-index')) > 0) {
+            __.$window.on('scroll.top', onScroll).scroll();
+        } else {
+            __.$window.off('scroll.top');
+            $btnTop.hide();
+        }
+    }).resize();
+
+    // scroll to top on click
+    $btnTop.on('click', function(event) {
+        $('html, body').animate({scrollTop: 0}, 400, 'easeInOutExpo');
+
+        event.preventDefault();
+        event.stopPropagation();
+    });
+}
+
+/**
+ * fixed header
+ *
+ * 스크롤 시에 header 조정
+ */
+function fixedHeader(targetOffset) {
+    var height = __.$header.outerHeight();
+
+    __.$header.addClass('header-fixed');
+    __.$main.css('padding-top', height);
+
+    __.$window.scroll(function() {
+        var offset = __.$window.scrollTop();
+
+        __.$header.toggleClass('header-folded', offset > targetOffset);
+    }).scroll();
+}
+
+/**
+ * accordion
+ */
+
+(function($){
+
+    $.fn.accordion = function(opt) {
+        var opt = $.extend({
+            easing:         'easeOutQuint',
+            speed:          400,
+            titleSelector:  '.q',
+            contSelector:   '.a',
+
+            collapsible:    false,
+            callback:       function() {}
+        }, opt);
+
+        return this.each(function() {
+            var $this = $(this),
+                $title = $this.find(opt.titleSelector),
+                $cont = $this.find(opt.contSelector),
+                $items = $title.parent(),
+                $currentItem = $this.filter('.on');
+
+            var init = function() {
+                var titleHeight = $title.outerHeight();
+
+                $title.css('cursor', 'pointer').attr('tabindex', 0);
+                $title.on('click keypress', function(event) {
+                    if ( event.type == 'click' || event.which == 13 ) {
+                        open($(this).parent());
+                    }
+                });
+
+                if ( !opt.collapsible ) {
+                    if( $currentItem.length > 0 ) open($currentItem.eq(0));
+                } else {
+                    $currentItem.removeClass('on');
+                }
+
+                $items.not('.on').find(opt.contSelector).hide();
+            };
+
+            var open = function($target) {
+                var isOn = $target.hasClass('on');
+
+                $items.removeClass('on');
+                $cont.stop(true, true).slideUp({
+                    duration: opt.speed,
+                    easing: opt.easing,
+                    complete: function() {
+                        opt.callback();
+                        $cont.css('zoom', 1);
+                    }
+                });
+
+                if(isOn) return;
+
+                $target.addClass('on').find(opt.contSelector).stop(true, true).slideDown({
+                    duration: opt.speed,
+                    easing: opt.easing,
+                    complete: function() {
+                        opt.callback();
+                    }
+                });
+            };
+
+            init();
+        });
+    };
+
+    $.fn.selectbox = function(opt) {
+        return this.each(function() {
+            var $this = $('<div class="select-wrap"></div>'),
+                $select = $(this);
+
+            $select.wrap($this);
+            $this = $select.parent();
+
+            $this.on('scroll', function(event) {
+                $(this).scrollTop(0);
+                event.preventDefault();
+            });
+
+            $(window).resize(function() {
+                var selectWidth = 0;
+
+                $select.css('width', '');
+                selectWidth = $select.outerWidth();
+
+
+                $this.css('width', selectWidth - 2);
+                $select.css('width', selectWidth + 23);
+            }).resize();
+        });
+    };
+
+})(jQuery);
+
+
+/**
+ * legacy browser warning
+ *
+ * IE 9 미만 브라우저에게 경고 메시지 출력
+ * 메시지 닫기 버튼 동작 binding
+ */
+function legacyBrowser() {
+    $('#legacy-browser').find('.legacy-browser-close').on('click', function() {
+        $(this).parent().slideUp(200, function() {
+            $(this).remove();
+        });
+    });
+}
+
+/**
+ * skip navigation
+ *
+ * 메뉴 건너뛰기 작동
+ */
+function skipnav() {
+    $('#skipnav').on('click', function() {
+        $('#main')
+            .attr('tabindex', '0')
+            .focus()
+            .on('focusout', function() {
+                $(this).removeAttr('tabindex');
+            });
+    });
+}
+
+
+/**
+ * placeholder polyfill
+ */
+(function($){
+
+    // placeholder polyfill
+    $.fn.placeholder = function() {
+
+        function hasPlaceholderSupport() {
+            var i = document.createElement('input');
+            return 'placeholder' in i;
+        }
+
+        return this.each(function(i, el){
+            var $el = $(el),
+                $fake,
+                holder = $el.attr('placeholder'),
+                is_password = $el.is('[type=password]');
+
+            if( hasPlaceholderSupport() ) return;
+
+            if ( is_password ) {
+                $fake = $('<input />', {
+                    'class': $el.attr('class'),
+                    'type': 'text',
+                    'value': holder
+                });
+                $fake.appendTo( $el.parent() );
+                $el.hide();
+
+                $fake.on({
+                    focus: function() {
+                        showFakeInput();
+                        $el.focus();
+                    }
+                });
+                $el.on({
+                    focus: showFakeInput,
+                    blur: function() {
+                        if ( $el.val() == '' ) {
+                            $fake.css('display', '');
+                            $el.hide();
+                        }
+                    }
+                });
+
+            } else {
+                setPlaceholder();
+                $el.on({
+                    focus: function() {
+                        if ( $el.val() == holder ) {
+                            $el.val('').removeClass('placeholder');
+                        }
+                    },
+                    blur: setPlaceholder
+                });
+            }
+
+            function showFakeInput() {
+                $fake.hide();
+                $el.css('display', '');
+            }
+
+            function setPlaceholder() {
+                if ( $el.val() == '' ) {
+                    $el.val(holder).addClass('placeholder');
+                }
+            }
+        });
+    }
+
+})(jQuery);
+
+
+
+function popup(url, w, h, name, option){
+    var px, py;
+    var sw  = screen.availWidth ;
+    var sh  = screen.availHeight ;
+    var scroll = 0;
+    if (option == 'scroll'){
+        scroll = 1;
+    }
+    px=(sw - w)/2;
+    py=(sh - h)/2;
+    window.open(url, name, "location=0,status=0,scrollbars="+scroll+",resizable=1,width="+w+",height="+h+",left="+px+",top="+py);
+}
+
+
+/**
+ *  end: ui.js
+ */
+
+/**
+  * Load Cufon font
+  */
+ Modernizr.load({
+    test: Modernizr.touch,
+    nope: ['/static/js/font/cufon-yui.min.js', '/static/js/font/kopub_400.font.min.js',],
+    complete : function() {
+        if ( window.Cufon ) {
+            Cufon.replace('h1.h, h2.h, h3.h, h4.h, p.h', {fontFamily: 'kopub'});
+        }
+    }
+ });

@@ -1,0 +1,37 @@
+package com.parametertest.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@Controller
+public class HomeController {
+
+	@RequestMapping("/")
+	public String home() {
+		return "home";
+	}
+
+	@RequestMapping(value = "/temp", method = RequestMethod.GET)
+	public String temp(String a, int b) {
+		System.out.println("a=" + a);
+		System.out.println("b=" + (b + 3));
+		System.out.println("/temp 호출");
+		return "none";
+
+	}
+
+	@RequestMapping("/temp1")
+	public String tmpe1(HttpServletRequest request, HttpServletResponse response) {
+			String in_a = request.getParameter("a");
+			String in_b = request.getParameter("b");
+			
+			String a = in_a;
+			int b = Integer.parseInt(in_b) + 3;
+		return
+	}
+}

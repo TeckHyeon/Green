@@ -1,0 +1,82 @@
+/**
+ * Project: a Small library
+ * action.js
+ */
+$(function(){
+    "use strict";
+    
+    $('[placeholder]').placeholder();
+
+    /**
+     * call function if element exists
+     */
+    $.each({
+        // '.element-selector': functionName,
+
+        // '#header': function() { fixedHeader(150) },
+        '#footer-top': function() { scrollToTop(100) },
+        '#skipnav': skipnav,
+        '#legacy-browser': legacyBrowser
+
+    }, function(idx, el) {
+        if($(idx).length) el();
+    });
+
+    /**
+     * apply bxSlider
+     */
+    var sliderDefault = {
+        enableItems: 2,
+        easing: 'easeInOutQuart',
+        easingCSS: 'cubic-bezier(.3,0,.3,1)'
+    };
+
+    $.each({
+        // '.element-selector': {
+        //     option: value;
+        // },
+
+        // main - 추천도서
+        '#books': {
+            wrapperClass: 'books-slider',
+            textPrefix: '추천도서 - ',
+            pagerSelector: '.books-pager',
+            onSliderLoad: function() {
+                __.$window.on('resize', function() {
+                    var height = $('#books').children().eq(0).find('.book-thumb').height();
+
+                    $('.books-slider .bx-controls-direction > a').css('top', height / 2);
+                }).resize();
+            }
+        }
+    }, function(key, val) {
+        var $el = $(key),
+            _val = $.extend({}, sliderDefault, val);
+
+        if($el.length) {
+            if(_val.enableItems >= 1 && $el.children().length < _val.enableItems) {
+                return true;
+            }
+
+            $el.bxSlider(_val);
+        }
+    });
+
+    $('a.popup').click(function(){
+        var a = $(this)
+            , url = a.attr('href')
+            , w = a.attr('data-width')
+            , h = a.attr('data-height')
+            , option
+            , name = a.attr('id')
+        ;
+        option = (a.attr('data-option') == undefined) ? 0 : a.attr('data-option');
+        popup(url, w, h, name, option);
+        return false;
+    });
+    
+});
+/*  
+ * end: action.js
+ */
+ //'+o.settings.class?o.settings.class:''+'

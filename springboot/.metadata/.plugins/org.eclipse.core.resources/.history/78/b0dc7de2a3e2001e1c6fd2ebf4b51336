@@ -1,0 +1,7 @@
+package com.board.mapper;
+
+import com.board.domain.BoardVo;
+
+public interface BoardMapper {
+	public void  boardInsert(BoardVo board);
+}

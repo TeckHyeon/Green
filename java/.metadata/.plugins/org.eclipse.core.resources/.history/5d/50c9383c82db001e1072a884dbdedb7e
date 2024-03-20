@@ -1,0 +1,13 @@
+package ex03;
+
+public class TestMysql01 {
+	private static String driver = "com.mysql.cj.jdbc.Driver";
+	private static String url = "jdbc:mysql://localhost/testDB?serverTimezone=UTC";
+	private static String id = "testid";
+	private static String pw = "1234";
+
+	public static void main(String[] args) {
+
+	}
+
+}

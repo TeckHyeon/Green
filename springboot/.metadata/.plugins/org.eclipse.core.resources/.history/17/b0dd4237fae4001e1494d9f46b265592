@@ -1,0 +1,8 @@
+server.port=9091
+spring.datasource.hikari.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.hikari.jdbc-url=jdbc:mysql://localhost:3306/java404_kdh_1_db?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+spring.datasource.hikari.username=java404_kdh_1
+spring.datasource.hikari.password=1234
+spring.datasource.hikari.connection-test-query=SELECT 1
+mybatis.configuration.map-underscore-to-camel-case=true
+spring.mvc.hiddenmethod.filter.enabled=true

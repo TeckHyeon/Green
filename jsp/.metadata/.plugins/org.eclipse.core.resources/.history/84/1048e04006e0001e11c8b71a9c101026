@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+double v1 = Double.parseDouble(request.getParameter("v1"));
+double v2 = Double.parseDouble(request.getParameter("v2"));
+double result = v1 + v2;
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%=result%>
+</body>
+</html>

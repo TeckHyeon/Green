@@ -1,0 +1,34 @@
+<%@page import="db.MemberVo"%>
+<%@page import="db.DBHandler"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+//1. 수정할 데이터를 넘겨받는다.
+	    request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=UTF-8");
+		String name = request.getParameter("name");
+		String phone = request.getParameter("phone");
+		int mid = Integer.parseInt(request.getParameter("mid"));
+		MemberVo vo = new MemberVo();
+		vo.setMid(mid);
+		vo.setName(name);
+		vo.setPhone(phone);
+		DBHandler db = new DBHandler();
+		db.update(vo);
+
+//2. oracle에 수정한다.
+
+//3. 목록으로 이동
+		String loc = "list.jsp";
+		response.sendRedirect(loc);
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

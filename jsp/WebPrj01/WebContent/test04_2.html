@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+      window.onload = function () {
+
+         const btnOkEl = document.getElementById('btnOk');
+       
+         let html = '';
+         let today = new Date();
+         btnOkEl.onclick = function () {
+            let byear = document.getElementById('birthYear').value;
+            let year = today.getFullYear();
+            let month = today.getMonth() + 1;
+            let date = today.getDate();
+            let day = today.getDay();
+            /* let days = '일, 월, 화, 수, 목, 금, 토'.split(',');
+             let wkday = days[day]; */
+            let days = ['일', '월', '화', '수', '목', '금', '토'];
+            wkday = days[day];
+            let msg = `${year}년 ${month}월 ${date}일 ${wkday}요일`
+            //alert('ok Click');
+           // alert(msg);
+            let age = year - byear + 1;
+            let adult = '';
+            if (age >= 20) {
+               adult = '성인';
+            } else {
+               adult = '미성년자';
+            }
+            let ddi = '원숭이, 닭, 개, 돼지, 쥐, 소, 호랑이, 토끼, 용, 뱀, 말, 양'.split(',');
+            let ddiimg = '9,10,11,12,1,2,3,4,5,6,7,8'.split(',');
+            html = `<ul>
+             <li>태어난 연도:${byear}</li>
+             <li>나이:${age}</li>
+             <li>성인:${adult}</li>
+             <li>띠:${ddi[byear % 12]}</li>
+             <li>
+             <img src="images/${ddiimg[byear % 12]}.png"/></li>
+          </ul>`;   // ` 백틱(backtick)
+            output.innerHTML = html;
+          const ulEl = document.querySelector('ul');
+          ulEl.onmouseenter = function() {
+ 			ulEl.style.backgroundColor = 'yellow';
+ 		}
+          ulEl.onmouseleave = function() {
+  			ulEl.style.backgroundColor = 'white';
+  		}
+         };  // 익명 함수
+         const btnBirthYear = document.getElementById('birthYear');
+         btnBirthYear.onkeydown = btnOkEl.onclick;
+    	
+      
+      }
+   </script>
+<style type="text/css">
+ul {
+	border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+	<h2>나이계산</h2>
+	<div>태어난 연도</div>
+	<input type="number" id="birthYear" />
+	<button id="btnOk">Ok</button>
+	<div id="output"></div>
+</body>
+
+</html>

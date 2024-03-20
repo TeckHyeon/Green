@@ -1,0 +1,50 @@
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="db.MemberVo"%>
+<%@page import="db.DBHandler"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+//1. 수정할 데이터를 넘겨받는다.
+request.setCharacterEncoding("utf-8");
+response.setContentType("text/html; charset=UTF-8");
+String name = request.getParameter("name");
+String phone = request.getParameter("phone");
+int mid = Integer.parseInt(request.getParameter("mid"));
+
+//2. oracle에 수정한다.
+DBHandler db = new DBHandler();
+Connection conn;
+String sql = "";
+sql += " UPDATE MEMBER SET NAME = ?, PHONE = ? WHERE MID = ?";
+PreparedStatement pstmt = null;
+try {
+	pstmt = conn.prepareStatement(sql);
+	pstmt.setString(1, vo.getName());
+	pstmt.setString(2, vo.getPhone());
+	pstmt.setInt(3, vo.getMid());
+	pstmt.executeUpdate(); // query 를 시행해라
+} catch (SQLException e) {
+	e.printStackTrace();
+} finally {
+	try {
+		if (pstmt != null)
+	pstmt.close();
+	} catch (SQLException e) {
+	}
+}
+//3. 목록으로 이동
+String loc = "list.jsp";
+response.sendRedirect(loc);
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

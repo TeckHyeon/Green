@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="x-windows-949" standalone="no"?>
+<log>
+<record>
+  <date>2024-03-18T02:04:01.853308600Z</date>
+  <nanos>308600</nanos>
+  <logger>oracle.dbtools.migration.workbench.core.MigrationLogResourceBundle</logger>
+  <level>WARNING</level>
+  <class>oracle.dbtools.migration.workbench.core.ui.FullMigrateTask</class>
+  <message>캡처 중 오류 발생: ORA-01400: NULL을 ("KDH"."MD_PROJECTS"."ID") 안에 삽입할 수 없습니다
+</message>
+  <key>Capture.EXCEPTION</key>
+  <catalog>oracle.dbtools.migration.workbench.core.MigrationLogResourceBundle</catalog>
+  <param>ORA-01400: NULL을 ("KDH"."MD_PROJECTS"."ID") 안에 삽입할 수 없습니다
+</param>
+  <param>oracle.dbtools.migration.workbench.core.logging.LogInfo@72b55865</param>
+
+</record>
+<record>
+  <date>2024-03-18T02:04:01.857270700Z</date>
+  <nanos>270700</nanos>
+  <logger>oracle.dbtools.migration.workbench.core.MigrationLogResourceBundle</logger>
+  <level>SEVERE</level>
+  <class>oracle.dbtools.migration.workbench.core.logging.MigrationLogUtil</class>
+  <message>Capture
+Classic Capture
+ORA-01400: NULL을 ("KDH"."MD_PROJECTS"."ID") 안에 삽입할 수 없습니다
+</message>
+  <param>oracle.dbtools.metadata.persistence.PersistableObject.doInsert(PersistableObject.java:248)</param>
+  <param>oracle.dbtools.metadata.persistence.PersistableObject.save(PersistableObject.java:182)</param>
+  <param>oracle.dbtools.migration.workbench.core.BasicMigrationStorer.storeObject(BasicMigrationStorer.java:51)</param>
+  <param>oracle.dbtools.migration.capture.CaptureWorker.storeConnection(CaptureWorker.java:658)</param>
+  <param>oracle.dbtools.migration.capture.CaptureWorker.runCapture(CaptureWorker.java:258)</param>
+  <param>oracle.dbtools.migration.workbench.core.ui.FullMigrateTask.doOnlineClassicCapture(FullMigrateTask.java:827)</param>
+  <param>oracle.dbtools.migration.workbench.core.ui.FullMigrateTask.doCapture(FullMigrateTask.java:610)</param>
+  <param>oracle.dbtools.migration.workbench.core.ui.FullMigrateTask.doMaskBasedActions(FullMigrateTask.java:407)</param>
+  <param>oracle.dbtools.migration.workbench.core.ui.FullMigrateTask.doWork(FullMigrateTask.java:321)</param>
+  <param>oracle.dbtools.migration.workbench.core.ui.FullMigrateTask.doWork(FullMigrateTask.java:154)</param>
+  <param>oracle.dbtools.raptor.backgroundTask.RaptorTask.call(RaptorTask.java:199)</param>
+  <param>java.base/java.util.concurrent.FutureTask.run(Unknown Source)</param>
+  <param>oracle.dbtools.raptor.backgroundTask.RaptorTaskManager$RaptorFutureTask.run(RaptorTaskManager.java:702)</param>
+  <param>java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)</param>
+  <param>java.base/java.util.concurrent.FutureTask.run(Unknown Source)</param>
+  <param>java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)</param>
+  <param>java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)</param>
+  <param>java.base/java.lang.Thread.run(Unknown Source)</param>
+  <param>oracle.dbtools.migration.workbench.core.logging.LogInfo@52c1981a</param>
+  <exception>
+    <message>oracle.dbtools.migration.workbench.core.ui.FullMigrateTask$FullMigrateTaskException: Capture
+Classic Capture
+ORA-01400: NULL을 ("KDH"."MD_PROJECTS"."ID") 안에 삽입할 수 없습니다
+</message>
+    <frame>
+      <class>oracle.dbtools.metadata.persistence.PersistableObject</class>
+      <line>248</line>
+    </frame>
+    <frame>
+      <class>oracle.dbtools.metadata.persistence.PersistableObject</class>
+      <line>182</line>
+    </frame>
+    <frame>
+      <class>oracle.dbtools.migration.workbench.core.BasicMigrationStorer</class>
+      <line>51</line>
+    </frame>
+    <frame>
+      <class>oracle.dbtools.migration.capture.CaptureWorker</class>
+      <line>658</line>
+    </frame>
+    <frame>
+      <class>oracle.dbtools.migration.capture.CaptureWorker</class>
+      <line>258</line>
+    </frame>
+    <frame>
+      <class>oracle.dbtools.migration.workbench.core.ui.FullMigrateTask</class>
+      <line>827</line>
+    </frame>
+    <frame>
+      <class>oracle.dbtools.migration.workbench.core.ui.FullMigrateTask</class>
+      <line>610</line>
+    </frame>
+    <frame>
+      <class>oracle.dbtools.migration.workbench.core.ui.FullMigrateTask</class>
+      <line>407</line>
+    </frame>
+    <frame>
+      <class>oracle.dbtools.migration.workbench.core.ui.FullMigrateTask</class>
+      <line>321</line>
+    </frame>
+    <frame>
+      <class>oracle.dbtools.migration.workbench.core.ui.FullMigrateTask</class>
+      <line>154</line>
+    </frame>
+    <frame>
+      <class>oracle.dbtools.raptor.backgroundTask.RaptorTask</class>
+      <line>199</line>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.FutureTask</class>
+    </frame>
+    <frame>
+      <class>oracle.dbtools.raptor.backgroundTask.RaptorTaskManager$RaptorFutureTask</class>
+      <line>702</line>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.Executors$RunnableAdapter</class>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.FutureTask</class>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.ThreadPoolExecutor</class>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.ThreadPoolExecutor$Worker</class>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+    </frame>
+  </exception>
+
+</record>
+<record>
+  <date>2024-03-18T02:04:01.863254500Z</date>
+  <nanos>254500</nanos>
+  <logger>oracle.dbtools.migration.workbench.core.MigrationLogResourceBundle</logger>
+  <level>WARNING</level>
+  <class>oracle.dbtools.migration.workbench.core.ui.FullMigrateTask</class>
+  <message>캡처 중 PROJECT script1: FAILED : 데이터베이스 이전 : FAILED</message>
+  <param>oracle.dbtools.migration.workbench.core.logging.LogInfo@325c2a27</param>
+
+</record>
+</log>

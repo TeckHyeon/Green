@@ -1,0 +1,20 @@
+<%@page import="db.MemberVo"%>
+<%@page import="db.DBHandler"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+String mid = request.getParameter("mid");
+DBHandler db = new DBHandler();
+db.update(Integer.parseInt(mid)); //db 에서 삭제
+response.sendRedirect("list.jsp");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

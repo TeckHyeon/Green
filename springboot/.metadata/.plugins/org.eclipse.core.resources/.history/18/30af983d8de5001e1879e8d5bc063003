@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kdh.mapper.GametalkMapper">
+
+
+	<select id="selectMemberInfoYn" parameterType="map" resultType="int">
+		<![CDATA[ 
+			SELECT 
+				COUNT(*) AS cnt
+			FROM
+				user_list
+			WHERE
+				user_id = #{userId}
+			AND
+				user_pw = #{userPw}
+		]]>
+	</select > 
+	<select id="loadUsers" parameterType="String" resultType="com.bitc.kdh.dto.GametalkUserDto">
+	<![CDATA[ 
+	SELECT
+		*
+	FROM
+		user_list
+	WHERE
+		user_id = #{userId}
+	AND
+		deleted_yn = 'N'
+	]]>
+	</select>
+	
+	<select id="viewPost" parameterType="String" resultType="com.bitc.kdh.dto.GametalkPostDto">
+		<![CDATA[
+			SELECT DISTINCT
+			post_idx, post_id, post_name, post_title, post_contents, post_likes, post_created_date, post_updated_date, deleted_yn 
+			FROM 
+			post p, follow f
+			WHERE
+			post_id = #{userId}
+			OR
+			f.follower_id = #{userId}
+			AND 
+			deleted_yn = 'N'
+		]]>
+	</select>
+	
+	<select id="readPost" resultType="com.bitc.kdh.dto.GametalkPostDto">
+		<![CDATA[
+			SELECT
+			post_idx, post_id, post_name, post_title, post_contents, post_likes, post_created_date, post_updated_date, deleted_yn 
+			FROM 
+			post
+			WHERE
+			post_id = #{userId}
+			AND 
+			deleted_yn = 'N'
+		]]>
+	</select>
+	
+	<select id="loadfollow" parameterType="String" resultType="com.bitc.kdh.dto.GametalkfollowDto">
+	<![CDATA[
+		SELECT
+		*
+		FROM
+		follow
+		WHERE
+		follower_id = #{userId}
+	]]>
+	</select >
+	
+	<insert id="createPost" parameterType="com.bitc.kdh.dto.GametalkPostDto" useGeneratedKeys="true" keyProperty="postIdx">
+		<![CDATA[
+			INSERT INTO post
+				( post_id, post_name, post_title, post_contents, post_created_date, post_updated_date)
+			VALUES
+				(#{postId}, #{postName}, #{postTitle}, #{postContents}, NOW(), NOW())
+		]]>
+	</insert>
+	<select id="myPage" parameterType="String" resultType="com.bitc.kdh.dto.GametalkUserDto">
+		<![CDATA[
+			SELECT
+				*
+			FROM
+				user_list
+			WHERE
+				user_name = #{userName}
+		]]>
+	</select>
+	<select id="profileEdit" parameterType="String" resultType="com.bitc.kdh.dto.GametalkUserDto">
+		<![CDATA[
+			SELECT
+				*
+			FROM
+				user_list
+			WHERE
+				user_id = #{userId}
+		]]>
+	</select>
+	<update id="passwordEdit" parameterType="com.bitc.kdh.dto.GametalkUserDto">
+		<![CDATA[
+			UPDATE
+				user_list
+			SET
+				user_pw = #{userPw}
+			WHERE
+				user_id = #{userId}
+			AND
+				deleted_yn = 'N'
+		]]>
+	</update>
+	<update id="infoEdit" parameterType="com.bitc.kdh.dto.GametalkUserDto">
+		<![CDATA[
+			UPDATE
+				user_list
+			SET
+				user_name = #{userName}, user_email = #{userEmail}, user_phone = #{userPhone}
+			WHERE
+				user_id = #{userId}
+			AND
+				deleted_yn = 'N'
+		]]>
+	</update>
+	
+	<insert id="createPostFileList" parameterType="com.bitc.kdh.dto.GametalkPostFileDto">
+		<![CDATA[
+			INSERT INTO post_file
+				(original_name, file_path, file_size, created_date, post_idx)
+			VALUES
+				
+		]]>
+		<foreach collection="list" item="item" separator=",">
+			(#{item.originalName},
+			#{item.filePath},
+			#{item.fileSize},
+			NOW(),
+			#{item.postIdx}
+			)
+		</foreach>
+	</insert>
+	
+	<select id="viewPostFileList" parameterType="int" resultType="com.bitc.kdh.dto.GametalkPostFileDto">
+	<![CDATA[
+			SELECT
+				 postfile_idx, f.post_idx, original_name, file_path,
+					FORMAT(ROUND(file_size / 1024), 0) AS file_size
+			FROM 
+				post_file f
+			JOIN
+				post p
+			WHERE 
+				f.post_idx = p.post_idx
+			AND	
+				p.post_idx = #{postIdx}
+			AND  
+				f.deleted_yn = 'N';
+		]]>
+	</select>
+	
+</mapper>

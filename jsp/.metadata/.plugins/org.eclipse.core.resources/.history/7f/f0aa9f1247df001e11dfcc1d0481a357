@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>로그인</h2>
+<form action="loginProcess.jsp" method="post" onsubmit="return false;">
+	아이디<input type="text" name="userid"/><br />
+	암호<input type="password" name="passwd"/><br />
+	<input type="button" value="로그인(button)" />
+	<input type="submit" value="로그인(submit)" />
+	<input type="image" src="" value="로그인(image)"/>
+	<button>로그인(button tag)</button>
+</form>
+</body>
+</html>

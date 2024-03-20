@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="SCORES" directorySegmentName="seg_0" id="069B1C79-B09C-6EA4-8E01-47C5E739F81F">
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:18 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<schemaObject>56059337-04B4-F6D7-80BF-A12671A7C813</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>9D569650-9974-672B-7A94-B68CBBA1968C</segment>
+<tableSpace>E4F15437-7ABD-E5B1-AC8D-268AECA95A0B</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="SCID" id="38EB4225-1FAA-A464-F5C6-FB768777D06E">
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:19 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STID" id="70F56AD9-061E-B8E0-594E-9CC5197AC201">
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:19 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SUBJECT" id="874020D8-4CFB-0C9A-AF89-41C9FD5A4F44">
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:19 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SCORE" id="BDD013E3-BD97-D03B-6270-CC26FFB114EA">
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:19 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="STID_PK" id="D805C642-A55E-2EB8-87F2-AEAB13E663B8">
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:20 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<schemaObject>56059337-04B4-F6D7-80BF-A12671A7C813</schemaObject>
+<segment>B8B303EC-D8D7-AB9C-E457-B03188842CA4</segment>
+<tableSpace>E4F15437-7ABD-E5B1-AC8D-268AECA95A0B</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="STID_FK" id="A261748A-13F5-0097-DAE4-1B5A76D8AB50">
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:21 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="STID_PK" id="6DD94A90-937D-59E5-45E5-1C74E27AE446">
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:21 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<segment>B8B303EC-D8D7-AB9C-E457-B03188842CA4</segment>
+<tableSpace>E4F15437-7ABD-E5B1-AC8D-268AECA95A0B</tableSpace>
+<existingIndex>D805C642-A55E-2EB8-87F2-AEAB13E663B8</existingIndex>
+<indexSegment>B8B303EC-D8D7-AB9C-E457-B03188842CA4</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

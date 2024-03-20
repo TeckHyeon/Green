@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<a href="result01.jsp?a=10&b=3">전송1</a><br />
+	<a href="result02.jsp">전송2</a><br />
+</body>
+</html>

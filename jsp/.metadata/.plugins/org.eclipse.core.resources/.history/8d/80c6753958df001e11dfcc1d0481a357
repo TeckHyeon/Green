@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>계산기</h2>
+<table>
+	<tr>
+		<td></td>
+		<td>값1</td>
+		<td><input type="number" id="v1"/></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>값2</td>
+		<td><input type="number" id="v2"/></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>결과</td>
+		<td><input type="text" /></td>
+	</tr>
+</table>
+</body>
+</html>

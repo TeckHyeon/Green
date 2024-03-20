@@ -1,0 +1,17 @@
+번호,이름,이메일,연도
+1,김채원,kcw@green.com,2000
+2,사쿠라,skr@green.com,1998
+3,허윤진,hyj@green.com,2001
+4,카즈하,kzh@green.com,2003
+5,홍은채,hyc@green.com,2006
+6,미연,my@green.com,1997
+7,민니,mn2000@green.com,1997
+8,소연,sy@green.com,1998
+9,우기,ugi@green.com,1999
+10,슈화,syuh@green.com,2000
+11,안유진,ahn@green.com,2003
+12,가을,fall@green.com,2002
+13,레이,lay@green.com,2004
+14,장원영,jyw@green.com,2004
+15,리즈,lz@green.com,2004
+16,이서,es@green.com,2007

@@ -1,0 +1,15 @@
+class A extends JFrame {
+	JLbel lblResult
+	JButton btn1;
+		
+	actionPerform {
+		Calc c = new Calc();
+		
+	}
+}
+
+class Calc {
+
+
+
+}

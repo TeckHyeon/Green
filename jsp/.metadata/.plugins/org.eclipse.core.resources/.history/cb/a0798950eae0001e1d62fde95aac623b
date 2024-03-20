@@ -1,0 +1,75 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.sql.DriverManager"%>
+<%@ page import="java.sql.Connection"%>
+<%@ page import="java.sql.Statement"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import='db.DBHandler'%>
+<%@ page import='db.MemberVo'%>
+<%@ page import="java.util.*"%>
+<%!// 변수 선언
+
+	DBHandler db = new DBHandler();
+	ArrayList<MemberVo> voList = db.selectList();
+	String html = "";
+	String fmt = "<tr><td>%d</td>";
+	fmt+= "<td>%s</td>";
+	fmt+= "<td>%s</td>";
+	fmt+= "<td>%s</td>";
+	fmt+= "</tr>";
+	for (int i = 0; i < voList.size(); i++) {
+		MemberVo vo = voList.get(i);
+	html += String.format(fmt, vo.getMid(), vo.getName(), vo.getPhone(), vo.getIndate());
+	}
+	%>
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+main {
+	width: 80%;
+	margin: 0 auto;
+}
+
+table, td {
+	border: 1px solid #333;
+	border-collapse: collapse;
+}
+td { text-align: center;}
+td:nth-child(1) {
+	width: 100px;
+}
+
+td:nth-child(2) {
+	width: 200px;
+}
+
+td:nth-child(3) {
+	width: 200px;
+}
+
+td:nth-child(4) {
+	width: 200px;
+}
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>회원목록조회</h2>
+	<table>
+		<%
+		for (int i = 0; i < voList.size(); i++) {
+			out.println("<tr>");
+			out.println("<td>" + voList.get(i).getMid() + "</td>");
+			out.println("<td>" + voList.get(i).getName() + "</td>");
+			out.println("<td>" + voList.get(i).getPhone() + "</td>");
+			out.println("<td>" + voList.get(i).getIndate() + "</td>");
+			out.println("</tr>");
+		}
+		%>
+	</table>
+
+
+</body>
+</html>

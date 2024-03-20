@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="http://localhost:8080/WebPrj02/result02">
+	<input type="text" id="v1" name="v1"/><br />
+	<input type="text" id="v2" name="v2"/><br />
+	<input type="text" id="opertaor" name="opertaor"/>
+	<input type="submit" id="submit" name="submit"/>
+	<div id="output"></div>
+</form>
+</body>
+</html>

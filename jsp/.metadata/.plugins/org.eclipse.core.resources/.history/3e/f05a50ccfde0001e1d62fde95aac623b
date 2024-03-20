@@ -1,0 +1,22 @@
+@charset "UTF-8";
+td:nth-child(1) {
+	width: 200px;
+}
+
+td:nth-child(2) {
+	width: 200px;
+}
+
+td:nth-child(3) {
+	width: 200px;
+}
+
+td:nth-child(4) {
+	width: 200px;
+}
+
+tr:first-child {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+}

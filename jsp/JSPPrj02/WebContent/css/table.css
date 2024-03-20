@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+tr:first-child {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+}

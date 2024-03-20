@@ -1,0 +1,19 @@
+package com.board.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface MenuMapper {
+
+	public void insertMenu(String menu_id, String menu_name, int menu_seq);
+	public void viewMenu();
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+package com.kdh.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import com.kdh.dto.GametalkPostDto;
+
+@Mapper
+public interface GametalkMapper {
+
+	int selectMemberInfoYn(@Param("userId") String userId, @Param("userPw") String userPw) throws Exception;
+	
+	List<GametalkPostDto> viewPost(String userId) throws Exception;
+
+}

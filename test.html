@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = function () {
+      function youtubeParser(url, ...groups) {
+        console.log(url);
+        const container = `
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/#ID#" title="YouTube video player"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    </div>`;
+
+        return groups && groups[6].length == 11
+          ? container.replace("#ID#", groups[6])
+          : url;
+      }
+
+      const content = document.getElementById('content');
+      console.log(content.innerHTML);
+      // 유튜브 URL 찾는 패턴
+      const youtubeUrlExp = /(http:|https:)?(\/\/)?(www\.)?(youtube.com|youtu.be)\/(watch|embed)?(\?v=|\/)?(\S+)?/g;
+      const wrappedContent = content.innerHTML.replace(youtubeUrlExp, youtubeParser);
+
+      content.innerHTML = wrappedContent;
+    }
+
+
+
+  </script>
+</head>
+
+<body>
+  <div id="content">
+    <p>
+      유튜브 영상에서 주소를 복사한 후 글 아무데나 삽입하면 됩니다.
+
+      https://www.youtube.com/watch?v=WZiD8_XHENA
+
+      https://youtu.be/J0dHN1yC0NI
+    </p>
+  </div>
+</body>
+
+</html>

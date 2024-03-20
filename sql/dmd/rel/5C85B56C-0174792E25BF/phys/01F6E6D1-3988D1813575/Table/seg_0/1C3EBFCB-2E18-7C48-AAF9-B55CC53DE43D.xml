@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="REGIONS" directorySegmentName="seg_0" id="1C3EBFCB-2E18-7C48-AAF9-B55CC53DE43D">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-22 06:30:56 UTC</createdTime>
+<ownerDesignName>dmd</ownerDesignName>
+<schemaObject>C891CC0C-B3DE-7DB3-AE62-823FCFEDCA1A</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>8F754835-0C65-09BB-CAA2-854BA15B12DB</segment>
+<tableSpace>36325C20-D48C-30DC-22F9-9002B17B39F7</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="REGION_NAME" id="2573BAA4-238B-F469-CCEF-4D90907AD5D1">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-22 06:30:56 UTC</createdTime>
+<ownerDesignName>dmd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="REGION_ID" id="512EA2F7-0291-8C5C-058E-BC2938A9B625">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-22 06:30:56 UTC</createdTime>
+<ownerDesignName>dmd</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="REG_ID_PK" id="2779A81C-531E-6A03-8B7A-52C5F71B08C3">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-22 06:30:58 UTC</createdTime>
+<ownerDesignName>dmd</ownerDesignName>
+<schemaObject>C891CC0C-B3DE-7DB3-AE62-823FCFEDCA1A</schemaObject>
+<segment>E61EA6E5-5663-76EA-BDD9-CF9B77F17613</segment>
+<tableSpace>36325C20-D48C-30DC-22F9-9002B17B39F7</tableSpace>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="REG_ID_PK" id="850DECBB-EDE8-29BC-A84C-77C58CDCC741">
+<createdBy>GGG</createdBy>
+<createdTime>2024-02-22 06:30:58 UTC</createdTime>
+<ownerDesignName>dmd</ownerDesignName>
+<segment>E61EA6E5-5663-76EA-BDD9-CF9B77F17613</segment>
+<tableSpace>36325C20-D48C-30DC-22F9-9002B17B39F7</tableSpace>
+<existingIndex>2779A81C-531E-6A03-8B7A-52C5F71B08C3</existingIndex>
+<indexSegment>E61EA6E5-5663-76EA-BDD9-CF9B77F17613</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

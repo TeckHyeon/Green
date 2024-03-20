@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+      height: 150px;
+      font-size: 1.2em;
+    }
+
+
+
+    img {
+      height: 80px;
+      width: 100px;
+    }
+
+    /* 첫번째 td */
+    td:first-child {
+      width: 300px;
+    }
+
+    td:nth-child(2) {
+      width: 300px;
+    }
+
+    td:last-child {
+      width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main">
+    <h2>Table Tag</h2>
+    <table>테이블 테스트
+      <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Category</th>
+      </tr>
+      <tr>
+        <td>Tiger</td>
+        <td><img src="./images/3.png" alt="호랑이"></td>
+        <td>Animal</td>
+      </tr>
+      <tr>
+        <td>Cow</td>
+        <td><img src="./images/2.png" alt="소"></td>
+        <td>Animal</td>
+      </tr>
+      <tr>
+        <td>Pig</td>
+        <td><img src="./images/12.png" alt="돼지"></td>
+        <td>Animal</td>
+      </tr>
+      <tr>
+        <td>Dragon</td>
+        <td><img src="./images/5.png" alt="용"></td>
+        <td>Animal</td>
+      </tr>
+    </table>
+
+
+  </div>
+</body>
+
+</html>

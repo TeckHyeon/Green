@@ -1,0 +1,97 @@
+package com.kdh.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.kdh.dto.GametalkPostDto;
+import com.kdh.dto.GametalkPostFileDto;
+import com.kdh.dto.GametalkUserDto;
+import com.kdh.dto.GametalkfollowDto;
+import com.kdh.service.GametalkService;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+public class gametalkController {
+
+	@Autowired
+	private GametalkService gametalkService;
+	
+	@RequestMapping("/")
+	public String index() throws Exception {
+		return "index";
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() throws Exception {
+
+		return "/gametalk/login";
+	}
+
+	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
+	public String loginCheck(GametalkUserDto user, HttpServletRequest request) throws Exception {
+		int count = gametalkService.selectMemberInfoYn(user.getUserId(), user.getUserPw());
+
+		if (count == 1) {
+			HttpSession session = request.getSession();
+			session.setAttribute("userId", user.getUserId());
+			session.setAttribute("userName", user.getUserName());
+			session.setMaxInactiveInterval(1800);
+			return "redirect:/main";
+		} else {
+			return "redirect:/loginFail";
+		}
+	}
+
+	@RequestMapping(value = "/loginOK", method = RequestMethod.GET)
+	public String loginOK(HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+
+		if (session.getAttribute("userId") != null) {
+			return "/main";
+		} else {
+			return "/loginFail";
+		}
+	}
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		session.removeAttribute("userId");
+		session.invalidate();
+
+		return "redirect:/login";
+	}
+
+	@RequestMapping(value = "/loginFail", method = RequestMethod.GET)
+	public String loginFail() throws Exception {
+		return "/gametalk/loginFail";
+	}
+	
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	public ModelAndView main(@SessionAttribute("userId") String userId) throws Exception {
+		ModelAndView mv = new ModelAndView("/gametalk/main");
+		List<GametalkPostDto> posts = gametalkService.viewPost(userId);
+		GametalkUserDto users = gametalkService.loadUsers(userId);
+		List<GametalkfollowDto> follow = gametalkService.loadfollow(userId);
+		List<GametalkPostFileDto> files = new ArrayList<GametalkPostFileDto>();
+		for(int i=0; i<posts.size(); i++) {
+			int postIdx = posts.get(i).getPostIdx();
+			files = gametalkService.viewPostFileList(postIdx); 
+			mv.addObject("files", files);
+		}
+		
+		mv.addObject("posts", posts);
+		mv.addObject("users", users);
+		mv.addObject("follow", follow);
+		return mv;
+	}
+}

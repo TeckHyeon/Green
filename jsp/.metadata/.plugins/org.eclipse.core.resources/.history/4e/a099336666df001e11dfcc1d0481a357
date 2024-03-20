@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h2>계산기</h2>
+	<table>
+		<tr>
+			<td></td>
+			<td>값1</td>
+			<td><input type="number" id="v1" value="7" /></td>
+		</tr>
+		<tr>
+			<td><select id="op">
+					<option>-선택-</option>
+					<option>+</option>
+					<option>-</option>
+					<option>*</option>
+					<option>/</option>
+				</select></td>
+			<td>값2</td>
+			<td><input type="number" id="v2" value="2" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>결과</td>
+			<td><input type="text" id="val" /></td>
+		</tr>
+	</table>
+
+	<script>
+		const opEl = document.querySelector('#op');
+		console.dir(opEl);
+		const val = document.querySelector("#val");
+		const v1 = parseFloat(document.querySelector("#v1").value);
+		const v2 = parseFloat(document.querySelector("#v2").value);
+		let result = 0;
+		opEl.onchange = function (e) {
+			console.dir(e);
+			//alert(e.target.value);
+			let op = e.target.value;
+			switch (op) {
+				case '-선택-':
+					
+					break;
+				case '+':
+					result = parseInt(v1) + parseInt(v2);
+					break;
+				case '-':
+					result = v1 - v2;
+					break;
+				case '*':
+					result = v1 * v2;
+					break;
+				case '/':
+					result = v1 / v2;
+					break;
+
+				default:
+					result = 0;
+					break;
+			}
+			val.value = result;
+		}
+	</script>
+</body>
+
+</html>

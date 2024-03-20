@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./css/main.css" rel="stylesheet"/>
+  <title>Document</title>
+  <style>
+    .star  { color:red;  }
+    table, td {
+      border : 1px solid #111;
+    }
+    table  {
+      width : 94%;
+      margin:0 auto;
+    }
+
+    td:first-child { 
+       width:30%;
+       text-align: center;
+       font-weight: bold;
+    }
+    td:last-child { width:70%;}
+
+
+
+  </style>
+</head>
+<body>
+  <div id="main">
+    <fieldset>
+      <legend>회원등록</legend>
+      <form action="./ex03.html" method="post">
+        <table>
+        <caption>
+          <h3>회원가입 서식 작성</h3>
+        </caption>
+        <tr>
+          <td><span class="star">*</span>이름</td>
+          <td><input type="text" name="username"  /></td>
+        </tr>
+        <tr>
+          <td><span class="star">*</span>사진</td>
+          <td><input type="file" name="photo1"  /></td>
+        </tr>
+        <tr>
+          <td><span class="star">*</span>아이디</td>
+          <td>
+            <input type="text" name="userid"  placeholder="아이디는 8글자 이상입니다"  />
+            <input type="button" value="중복확인" />
+          </td>
+        </tr>
+        <tr>
+          <td><span class="star">*</span>비밀번호</td>
+          <td>
+            <input type="password" name="userpass"  
+            placeholder="대소문자와 숫자,특수문자를 적어도 하나씩 사용해야합니다"  />
+          </td>
+        </tr>
+        <tr>
+          <td><span class="star">*</span>비밀번호 확인</td>
+          <td>
+            <input type="password" 
+            placeholder="대소문자와 숫자,특수문자를 적어도 하나씩 사용해야합니다"  />
+          </td>
+        </tr>
+        <tr>
+          <td><span class="star">*</span>이메일</td>
+          <td>
+            <input type="text" 
+            placeholder="@를 포함한 주소를 입력하세요"  />
+          </td>
+        </tr>
+        <tr>
+          <td><span class="star">*</span>생년월일</td>
+          <td>
+            <input type="date"  />
+          </td>
+        </tr>
+      </table>
+    </form>
+    </fieldset>
+
+  </div>
+</body>
+</html>

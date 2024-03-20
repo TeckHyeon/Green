@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #main {
+      width: 80%;
+      margin: 0 auto;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- radio name 속성이 같으면 그룹이 된다 -->
+  <div id="main">
+    <h2>성별</h2>
+    <form action="./ex01.html" method="get">
+      <input type="radio" name="gender" value="M" id="male">
+      <label for="male">남자</label>
+      <input type="radio" name="gender" value="F" id="female">
+      <label for="female">여자</label>
+      <br>
+      <input type="submit" value="전송">
+    </form>
+  </div>
+</body>
+
+</html>

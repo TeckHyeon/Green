@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<연예인들>
+	<연예인>
+		<num>1</num>
+		<name>아이유</name>
+		<age>32</age>
+	</연예인>
+	<연예인>
+		<num>2</num>
+		<name>이문세</name>
+		<age>58</age>
+	</연예인>
+	<연예인>
+		<name num="3">안유진</name>
+		<age>21</age>
+	</연예인>
+</연예인들>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #item1 {
+      grid-area: header;
+    }
+
+    #item2 {
+      grid-area: menu;
+    }
+
+    #item3 {
+      grid-area: main;
+    }
+
+    #item4 {
+      grid-area: right;
+    }
+
+    #item5 {
+      grid-area: footer;
+    }
+
+    #container1 {
+      display: grid;
+      grid-template-areas:
+        'header header header header header'
+        'menu main main right right'
+        'menu footer footer footer footer';
+      background-color: aqua;
+      padding: 10px;
+      width: 80%;
+      gap: 10px;
+    }
+
+    #container1>div {
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 20px 0;
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Grid Layout</h1>
+
+  <p>The CSS Grid Layout Module offers a grid-based layout system, with rows and columns, making it easier to design web
+    pages without having to use floats and positioning:</p>
+  <div id="container1">
+    <div id="item1">Header</div>
+    <div id="item2">Menu</div>
+    <div id="item3">Main</div>
+    <div id="item4">Right</div>
+    <div id="item5">footer</div>
+  </div>
+
+</body>
+
+</html>

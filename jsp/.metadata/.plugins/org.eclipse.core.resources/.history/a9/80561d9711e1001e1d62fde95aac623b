@@ -1,0 +1,45 @@
+<%@page import="db.MemberVo"%>
+<%@page import="db.DBHandler"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("utf-8");
+String mid = request.getParameter("mid");
+
+DBHandler db = new DBHandler();
+MemberVo vo = db.getMember(Integer.parseInt(mid));
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="" method="GET">
+		<table>
+			<tr>
+				<td>번호</td>
+				<td><%=vo.getMid()%></td>
+			</tr>
+			<tr>
+
+				<td>이름</td>
+				<td><input type="text" name="name" value="<%=vo.getName()%>" /></td>
+			</tr>
+			<tr>
+				<td>전화번호</td>
+				<td><input type="text" name="phone" value="<%=vo.getPhone()%>" /></td>
+			</tr>
+			<tr>
+				<td>가입일</td>
+				<td><%=vo.getIndate()%></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="수정" /></td>
+			</tr>
+		</table>
+		<a href="list.jsp">[목록]</a>
+	</form>
+</body>
+</html>

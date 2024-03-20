@@ -1,0 +1,13 @@
+package com.parametertest.domain;
+
+public class DataVo {
+	
+	private String a;
+	private int b;
+}
+
+
+
+
+
+

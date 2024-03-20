@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+  <style>
+    /* 공통 style */
+    @import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    /* header */
+    header {
+      color: rgb(255, 255, 255);
+      background-color: #666;
+      font-size: 40px;
+      text-align: center;
+      vertical-align: middle;
+      font-family: 'East Sea Dokdo', sans-serif;
+      padding: 40px;
+    }
+
+    /* container1 */
+    #container1 {
+      display: flex;
+    }
+
+    /* nav */
+    nav {
+      background-color: #ccc;
+      flex: 1;
+      padding: 20px;
+    }
+
+    nav>ul,
+    nav>ul>li {
+      list-style-type: none;
+    }
+
+    nav>ul>li>a {
+      text-decoration: none;
+      color: blue;
+    }
+
+    nav>ul>li:hover {
+      background-color: gold;
+    }
+
+    li a {
+      display: block;
+    }
+
+    /* section */
+    section {
+      background-color: #f1f1f1;
+      flex: 3;
+      padding: 20px
+    }
+
+    p {
+      margin: 20px;
+    }
+
+
+    /* p 태그중에 첫번째에 margin top : 0
+    p:first-of-type : p tag 중에 첫번째
+    p:nth-of-type(n) : p중에 n 번째
+    p:first-child : 첫번째 자식tag가 p tag 일때
+    p:nth-child(n) : n번쨰 자식tag가 p tag 일때
+    */
+    section>p:first-of-type {
+      margin-top: 0;
+    }
+
+    /* footer */
+    footer {
+      background-color: #777;
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+      font-family: 'East Sea Dokdo', sans-serif;
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header>Cities</header>
+    <div id="container1">
+      <nav>
+        <!-- ul>li*3>a:link -->
+        <ul>
+          <li>
+            <a href="./flex2_2.html">London</a>
+          </li>
+          <li>
+            <a href="./flex2_2_paris.html">Paris</a>
+          </li>
+          <li>
+            <a href="./flex2_2_seoul.html">Seoul</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <p>Paris</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque ultrices nisl, non euismod
+          ligula sollicitudin non. In pulvinar ipsum vel turpis vulputate, eget sodales ex congue. Vestibulum suscipit
+          egestas sem, in ullamcorper turpis euismod non. Integer sit amet metus porta enim dictum tincidunt.
+          Pellentesque felis nunc, scelerisque in fermentum a, pharetra eu elit. Nullam pretium dictum massa nec
+          tincidunt. Aliquam ex elit, convallis ut molestie nec, aliquet eu diam. Ut et enim vestibulum, pellentesque
+          purus in, bibendum magna. Ut sed magna justo. Etiam sed sodales enim. Sed vel tincidunt ante, eget efficitur
+          massa. Morbi non porttitor ex.</p>
+        <p>부정이 피해의 드는 아파트를 빗나가다. "이를 장성을 인기를 선거는 것 없다" 버린 수 제공하여 뿐 금융계에 통신관의 이중이, 강력히 한 일으킨 한다. 판결문이나 각종의 의석을 한 전쟁에
+          사인이지만 삶을 음해다 특히 자리의 않는다. 자료의 내부의 임명권자는 인터넷의 조정을 또 없다. "컴퓨터다 본, 가져오는, 소나타에 바뀌다 함 나가아 느슨해지다" 당으로 새로 못하는 다양하는
+          알아보다 찾아 진지다 모의는 당을 막히다.</p>
+      </section>
+    </div>
+    <footer>footer</footer>
+  </main>
+</body>
+
+</html>

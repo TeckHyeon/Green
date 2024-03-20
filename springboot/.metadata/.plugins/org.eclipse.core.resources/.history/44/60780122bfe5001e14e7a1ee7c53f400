@@ -1,0 +1,11 @@
+server.servlet.context-path=/
+
+server.port = 9091
+
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
+spring.datasource.username=kdh
+spring.datasource.password=1234 
+mybatis.mapper-locations:classpath:/sql/**/sql-*.xml
+spring.servlet.multipart.max-file-size=100MB
+spring.servlet.multipart.max-request-size=100MB

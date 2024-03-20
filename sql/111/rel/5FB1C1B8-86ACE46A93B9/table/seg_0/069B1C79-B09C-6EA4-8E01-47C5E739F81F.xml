@@ -1,0 +1,125 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="069B1C79-B09C-6EA4-8E01-47C5E739F81F" schemaObject="56059337-04B4-F6D7-80BF-A12671A7C813" name="SCORES">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>SCORES</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:18 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SCID" id="38EB4225-1FAA-A464-F5C6-FB768777D06E">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>SCORES</sourceObjSchema>
+<sourceObjName>SCID</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:19 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,6,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUBJECT" id="874020D8-4CFB-0C9A-AF89-41C9FD5A4F44">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>SCORES</sourceObjSchema>
+<sourceObjName>SUBJECT</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:19 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SCORE" id="BDD013E3-BD97-D03B-6270-CC26FFB114EA">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>SCORES</sourceObjSchema>
+<sourceObjName>SCORE</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:19 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<constraintName>SYS_C008391</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+<endValue>100</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="STID" id="70F56AD9-061E-B8E0-594E-9CC5197AC201">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>SCORES</sourceObjSchema>
+<sourceObjName>STID</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:19 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,6,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B7D76947-D545-E38D-24E7-7CD65AEC6A3F" referredColumn="AA76FB2E-99EE-DD8C-E083-8F96435009FC"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6DD94A90-937D-59E5-45E5-1C74E27AE446" name="STID_PK">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>STID_PK</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:21 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="38EB4225-1FAA-A464-F5C6-FB768777D06E"/>
+<colUsage columnID="874020D8-4CFB-0C9A-AF89-41C9FD5A4F44"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D805C642-A55E-2EB8-87F2-AEAB13E663B8" schemaObject="56059337-04B4-F6D7-80BF-A12671A7C813" name="STID_PK">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>STID_PK</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:20 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="38EB4225-1FAA-A464-F5C6-FB768777D06E"/>
+<colUsage columnID="874020D8-4CFB-0C9A-AF89-41C9FD5A4F44"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A261748A-13F5-0097-DAE4-1B5A76D8AB50" name="STID_FK">
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:21 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="70F56AD9-061E-B8E0-594E-9CC5197AC201"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

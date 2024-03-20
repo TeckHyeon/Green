@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <script>
+    function btnCal_Click(e) {
+
+      let v1El = document.getElementById('v1');
+      let v2El = document.getElementById('v2');
+      let div1El = document.getElementById('output');
+      switch (e) {
+        case "Add": div1El.innerHTML = parseInt(v1El.value) + parseInt(v2El.value); break;
+        case "Sub": div1El.innerHTML = parseInt(v1El.value) - parseInt(v2El.value); break;
+        case "Mul": div1El.innerHTML = parseInt(v1El.value) * parseInt(v2El.value); break;
+        case "Div": div1El.innerHTML = parseInt(v1El.value) / parseInt(v2El.value); break;
+      }
+    }
+  </script>
+</head>
+
+<body bgcolor="yellow">
+  <h2>계산기</h2>
+  <form action="" method="get">
+    <input type="text" name="val1" id="v1" />
+    <input type="text" name="val2" id="v2" />
+    <input type="button" value="Add" id="btnAdd" class="btncal" onclick="btnCal_Click(this.value)" />
+    <input type="button" value="Sub" id="btnSub" class="btncal" onclick="btnCal_Click(this.value)" />
+    <input type="button" value="Mul" id="btnMul" class="btncal" onclick="btnCal_Click(this.value)" />
+    <input type="button" value="Div" id="btnDiv" class="btncal" onclick="btnCal_Click(this.value)" />
+    <div id="output"></div>
+    </form>
+</body>
+
+</html>

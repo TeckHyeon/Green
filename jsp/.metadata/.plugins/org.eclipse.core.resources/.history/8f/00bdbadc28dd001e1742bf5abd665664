@@ -1,0 +1,50 @@
+package ex01;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Result02
+ */
+@WebServlet("/result02")
+public class Result02 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		double v1 = Double.parseDouble(request.getParameter("v1"));
+		String operator = request.getParameter("operator");
+		double v2 = Double.parseDouble(request.getParameter("v2"));
+		double result = 0;
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if (operator.equals("+")) {
+			result = v1 + v2;
+		} else {
+			if (operator.equals("-")) {
+				result = v1 - v2;
+			} else {
+				if (operator.equals("*")) {
+					result = v1 * v2;
+				} else {
+					if (operator.equals("/")) {
+						result = v1 / v2;
+					} else {
+						out.print("값이 잘못됐습니다");
+					}
+				}
+			}
+		}
+		out.print("Served at: " + v1 + v2);
+		out.print("Served at: " + result);
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

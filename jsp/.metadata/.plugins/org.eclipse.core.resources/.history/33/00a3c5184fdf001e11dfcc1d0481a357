@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h2>로그인</h2>
+	<form method="post">
+		아이디<input type="text" name="userid" /><br />
+		암호<input type="password" name="passwd" /><br />
+		<input type="submit" value="로그인1" onclick="submit1" />
+		<input type="submit" value="로그인2" onclick="submit2" />
+	</form>
+	<script type="text/javascript">
+		const formEl = document.querySelector('form');
+		formEl.addEventListener('submit', function (e) {
+			console.dir(e);
+			if(e=="submit1") {
+				formEl.action="A.jsp"
+			} else {
+				if(e=="submit2") {
+					formEl.action="B.jsp"
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>

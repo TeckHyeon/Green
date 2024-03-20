@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #apple {
+      color: red;
+    }
+
+    .nonetype {
+      list-style: none;
+    }
+
+    div:first-of-type>ul>li:nth-of-type(3)>a {
+      color: purple;
+    }
+
+    .blue {
+      color: blue;
+    }
+
+    .yellow {
+      color: yellow;
+    }
+
+    a.blue {
+      background-color: aquamarine;
+    }
+
+    div .blue {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ul = unordered list : 순서없는 목록-->
+  <div>
+    <ul>
+      <li class="nonetype">
+        <a href="" id="apple">사과</a>
+      </li>
+      <li class="nonetype">
+        배
+      </li>
+      <li class="nonetype">
+        포도
+      </li>
+    </ul>
+  </div>
+  <div>
+    <ul>
+      <li>
+        <a href="" id="apple">사과</a>
+      </li>
+      <li class=blue>
+        <a href="" class=blue>배</a>
+      </li>
+      <li>
+        포도
+      </li>
+    </ul>
+  </div>
+  <p>
+    <b class="blue">하하하하하하하하</b>
+  </p>
+
+</body>
+
+</html>

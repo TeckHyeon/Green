@@ -1,0 +1,26 @@
+
+테이블 : MEMBER
+번호     숫자(8)   기본키
+이름     문자(30)  필수입력
+전화     문자(20)  
+가입일   날짜      기본값 SYSDATE
+
+CREATE TABLE  MEMBER 
+(
+     MID     NUMBER(8)      PRIMARY KEY
+   , NAME    VARCHAR2(30)   NOT NULL
+   , PHONE   VARCHAR2(20)  
+   , INDATE  DATE           DEFAULT SYSDATE
+);
+
+INSERT  INTO  MEMBER ( MID, NAME,    PHONE  )
+ VALUES  ((SELECT NVL(MAX(MID),0) + 1 FROM MEMBER), '장원영', '010-1234-4567');
+ 
+INSERT  INTO  MEMBER ( MID, NAME, PHONE  )
+ VALUES  ((SELECT NVL(MAX(MID),0) + 1 FROM MEMBER), '안유진', '010-1234-8901'); 
+ 
+COMMIT;
+
+SELECT  MID,  NAME,  PHONE, INDATE
+ FROM   MEMBER
+ WHERE  NAME LIKE '%%';

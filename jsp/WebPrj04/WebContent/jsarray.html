@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<h2>JS 결과</h2>
+	<div id="output"></div>
+	<div id="output2"></div>
+	<script type="text/javascript">
+		let id = 3; //number
+		let name = '윈터'; //string
+		let height = 165.3; // number
+		let hobbys = ['게임', '등산', '낚시']; //배열
+		let man = false; // boolean
+		let sex = (man == true) ? '남자' : '여자';
+		let html = `<ul> <li>번호: ${id} </li> <li>이름: ${name} </li> <li>키: ${height} </li> <li>취미: ${hobbys[0]}, ${hobbys[1]}, ${hobbys[2]} </li> <li>성별 ${sex} </li></ul>`;
+		const outputEl = document.querySelector('#output');
+		outputEl.innerHTML = html;
+		let obj = {
+			id: 4,
+			name: '안유진',
+			height: 137.8,
+			hobbys: ['수영', '헬스'],
+			man: false,
+			sex: (this.man == true) ? '남자' : '여자',
+			toString: function () {
+				return this.id + "," + this.name;
+			},
+			toHtml: function () {
+				let html = `<ul> <li>번호: ${this.id} </li> <li>이름: ${this.name} </li> <li>키: ${this.height} </li> <li>취미: ${this.hobbys[0]}, ${this.hobbys[1]}</li> <li>성별 ${this.sex} </li></ul>`;
+				return html;
+			}
+		};
+		console.dir(obj)
+		alert(obj);
+		const output2El = document.querySelector('#output2');
+		output2El.innerHTML = obj.toHtml(); 
+	</script>
+</body>
+
+</html>

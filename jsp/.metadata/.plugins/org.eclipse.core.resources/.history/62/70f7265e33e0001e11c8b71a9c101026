@@ -1,0 +1,13 @@
+package calc;
+
+public class Calc {
+
+	public double add(double v1, double v2) {
+		double v = v1 + v2;
+		
+		return v;
+	}
+
+
+
+}

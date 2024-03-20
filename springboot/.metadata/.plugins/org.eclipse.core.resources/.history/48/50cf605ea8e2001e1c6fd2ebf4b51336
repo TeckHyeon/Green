@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper >
+
+<mapper namespace="com.board.mapper.BoardMapper">
+	<insert id="boardInsert" parameterType="board">
+		INSERT INTO BOARD (
+		BNO,
+		TITLE,
+		CONTENT,
+		WRITER
+		) VALUES (
+		SEQ_BNO.NEXTVAL,
+		#{title},
+		#{content},
+		#{writer}
+		)
+	</insert>
+
+</mapper>

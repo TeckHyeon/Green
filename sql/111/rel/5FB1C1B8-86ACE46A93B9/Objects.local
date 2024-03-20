@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="SchemaObject" objectID="56059337-04B4-F6D7-80BF-A12671A7C813" name="HR" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.SchemaObject" propertyParentId="5FB1C1B8-E715-17FB-E49B-86ACE46A93B9" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Table" objectID="069B1C79-B09C-6EA4-8E01-47C5E739F81F" name="SCORES" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.Table" propertyParentId="5FB1C1B8-E715-17FB-E49B-86ACE46A93B9" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Table" objectID="2B304EF2-A71C-D97A-ACE3-D2CA4DF132A8" name="STUDENT" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.Table" propertyParentId="5FB1C1B8-E715-17FB-E49B-86ACE46A93B9" propertySourceId="" propertyTargetId=""/>
+   <object objectType="FKIndexAssociation" objectID="B7D76947-D545-E38D-24E7-7CD65AEC6A3F" name="STID_FK" seqName="seg_0" containerID="069B1C79-B09C-6EA4-8E01-47C5E739F81F" refContainerID="2B304EF2-A71C-D97A-ACE3-D2CA4DF132A8" propertyClassName="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" propertyParentId="5FB1C1B8-E715-17FB-E49B-86ACE46A93B9" propertySourceId="2B304EF2-A71C-D97A-ACE3-D2CA4DF132A8" propertyTargetId="069B1C79-B09C-6EA4-8E01-47C5E739F81F"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

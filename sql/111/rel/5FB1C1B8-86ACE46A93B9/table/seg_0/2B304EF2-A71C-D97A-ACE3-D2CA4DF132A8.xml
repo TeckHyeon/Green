@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2B304EF2-A71C-D97A-ACE3-D2CA4DF132A8" schemaObject="56059337-04B4-F6D7-80BF-A12671A7C813" name="STUDENT">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>STUDENT</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:18 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="STID" id="AA76FB2E-99EE-DD8C-E083-8F96435009FC">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>STUDENT</sourceObjSchema>
+<sourceObjName>STID</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:19 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,6,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STNAME" id="F793749B-1396-37AA-1B47-DF5C096A9C28">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>STUDENT</sourceObjSchema>
+<sourceObjName>STNAME</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:19 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PHONE" id="7AEF1DA9-07A7-9F5D-AD6C-C1ACB293AEAD">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>STUDENT</sourceObjSchema>
+<sourceObjName>PHONE</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:19 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INDATE" id="B7FA75C0-9BFA-0118-6C0B-32865B6124AE">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>STUDENT</sourceObjSchema>
+<sourceObjName>INDATE</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:19 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<defaultValue>SYSDATE</defaultValue>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8A1D651B-BC3E-6B12-950B-1B3AE290D50D" schemaObject="56059337-04B4-F6D7-80BF-A12671A7C813" name="STUDENT_PK">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>SYS_C008382</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:20 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AA76FB2E-99EE-DD8C-E083-8F96435009FC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EE0EB809-1DE3-1507-DB2D-18AD0096719C" schemaObject="56059337-04B4-F6D7-80BF-A12671A7C813" name="STUDENT_PHONE_UN">
+<sourceConnName>hr</sourceConnName>
+<sourceObjSchema>HR</sourceObjSchema>
+<sourceObjName>SYS_C008383</sourceObjName>
+<createdBy>GGG</createdBy>
+<createdTime>2024-03-04 03:32:20 UTC</createdTime>
+<ownerDesignName>111</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7AEF1DA9-07A7-9F5D-AD6C-C1ACB293AEAD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

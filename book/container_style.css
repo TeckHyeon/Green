@@ -1,0 +1,9 @@
+.item {
+  background:  #0bd;
+  color: #fff;
+  
+  padding: 10px;
+}
+.container {
+  display: grid;
+}

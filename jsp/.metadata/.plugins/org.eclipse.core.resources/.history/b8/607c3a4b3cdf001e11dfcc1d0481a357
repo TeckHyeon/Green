@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function btn_click(str){                             
+    if(str=="jsp"){                                 
+        frm1.action="result02.jsp";      
+    } else if(str=="servlet"){      
+        frm1.action="http://localhost:8080/WebPrj02/result02";      
+    }  else {
+        //...
+    }
+}
+</script>
+</head>
+<body>
+<form method="post" name = "form">
+	<input type="text" id="v1" name="v1"/><br />
+	<input type="text" id="opertaor" name="operator"/><br />
+	<input type="text" id="v2" name="v2"/><br />
+	<input type="submit" id="submit" name="submit" onclick="javascript: form.action='http://localhost:8080/WebPrj02/result02'"/>
+	<input type="submit" id="submit" name="submit" onclick="javascript: form.action='result02.jsp'"/>
+	<div id="output"></div>
+</form>
+</body>
+</html>

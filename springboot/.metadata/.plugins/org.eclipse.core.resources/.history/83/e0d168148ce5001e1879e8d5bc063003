@@ -1,0 +1,11 @@
+server.servlet.context-path=/
+
+server.port = 9091
+
+spring.datasource.hikari.driver-class-name=oracle.jdbc.OracleDriver
+spring.datasource.hikari.jdbc-url=jdbc:oracle:thin:@localhost:1521:xe
+spring.datasource.hikari.username=kdh
+spring.datasource.hikari.password=1234
+spring.datasource.hikari.connection-test-query=SELECT 1
+mybatis.configuration.map-underscore-to-camel-case=true
+spring.mvc.hiddenmethod.filter.enabled=true
