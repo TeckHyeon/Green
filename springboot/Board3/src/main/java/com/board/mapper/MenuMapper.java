@@ -14,6 +14,7 @@ public interface MenuMapper {
 	public void updateMenu(MenuVo menuVo);
 	public MenuVo menuDetail(int menu_seq);
 	public void DeleteMenu(MenuVo menuVo);
+	public void insertQuick(MenuVo menuVo);
 }
 
 

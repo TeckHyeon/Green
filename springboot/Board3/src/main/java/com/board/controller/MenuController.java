@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.board.domain.MenuVo;
 import com.board.mapper.MenuMapper;
@@ -23,11 +24,21 @@ public class MenuController {
 
 		return  "menus/writeform";    
 	}
+	@RequestMapping("/WriteForm2")
+	public  String  WriteForm2() {
+		
+		return  "menus/writeform2";    
+	}
 	
 	@RequestMapping("/Write")
 	public String Write(MenuVo menuVo) {
 	    menuMapper.insertMenu(menuVo);
 	    return "redirect:/Menus/List";   
+	}
+	@RequestMapping("/Write2")
+	public String Write2(MenuVo menuVo) {
+		menuMapper.insertQuick(menuVo);
+		return "redirect:/Menus/List";   
 	}
 	@RequestMapping("/List")
 	public  String  List(Model model) {
@@ -35,10 +46,11 @@ public class MenuController {
 		model.addAttribute("lists",lists);
 		return  "menus/list";    
 	}
-	@RequestMapping("/Delete/{menu_seq}")
-	public  String  Delete(MenuVo menuVo) {
-		menuMapper.DeleteMenu(menuVo);
-		return  "redirect:/Menus/List";    
+	@RequestMapping("/Delete")
+	public String Delete(@RequestParam("menu_seq") int menu_seq, MenuVo menuVo) {
+	    menuVo.setMenu_seq(menu_seq);
+	    menuMapper.DeleteMenu(menuVo);
+	    return "redirect:/Menus/List";
 	}
 	@RequestMapping("/UpdateForm/{menu_seq}")
 	public  String  UpdateForm(@PathVariable("menu_seq") int menu_seq, Model model) {
@@ -47,8 +59,8 @@ public class MenuController {
 		return  "menus/UpdateForm";    
 	}
 	@RequestMapping("/Update/{menu_seq}")
-	public  String  Update(MenuVo menuVo) {
-		
+	public  String  Update(@PathVariable("menu_seq") int menu_seq, MenuVo menuVo) {
+		menuVo.setMenu_seq(menu_seq);
 	    menuMapper.updateMenu(menuVo);
 		return  "redirect:/Menus/List";    
 	}

@@ -6,8 +6,14 @@
 		INSERT INTO MENUS
 		VALUES (#{menu_id}, #{menu_name}, #{menu_seq} )
 	</insert>
+	<insert id="insertQuick">
+		INSERT INTO MENUS (MENU_ID, MENU_NAME, MENU_SEQ)
+		VALUES ((SELECT 'MENU'||TRIM(TO_CHAR(NVL(MAX(SUBSTR(MENU_ID, 5, 2)),
+		'00')+1, '00')) FROM MENUS), #{menu_name}, (select nvl(max(MENU_SEQ),0)+1
+		from MENUS))
+	</insert>
 	<select id="viewMenu">
-		SELECT * FROM MENUS
+		SELECT * FROM MENUS ORDER BY MENU_SEQ ASC
 	</select>
 	<select id="menuDetail">
 		SELECT * FROM MENUS WHERE MENU_SEQ = #{menu_seq}

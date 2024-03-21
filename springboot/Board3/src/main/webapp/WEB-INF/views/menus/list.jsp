@@ -82,7 +82,8 @@ tr:first-child {
 				<td>수정</td>
 			</tr>
 			<tr>
-				<td colspan="5">[<a href="/Menus/WriteForm">메뉴등록</a>]
+				<td colspan="5">[<a href="/Menus/WriteForm">메뉴등록</a>]&nbsp;&nbsp;&nbsp;[<a href="/Menus/WriteForm2">메뉴등록2</a>]
+				
 				</td>
 			</tr>
 			<c:forEach var="menu" items="${ lists }">
@@ -102,7 +103,7 @@ tr:first-child {
 					e.preventDefault(); // 기본 동작 방지
 					var menuSeq = e.target.getAttribute('data-menu-seq');
 					if (confirm("정말 삭제하시겠습니까?")) {
-						location.href = '/Menus/Delete/' + menuSeq;
+						location.href = '/Menus/Delete?menu_seq=' + menuSeq;
 					}
 				}
 			});

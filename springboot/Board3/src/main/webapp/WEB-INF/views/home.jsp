@@ -12,6 +12,7 @@
 	<main>
 		<h2>Home 입니다</h2>
 	<a href="/Menus/WriteForm">메뉴 추가</a>
+		<a href="/Menus/WriteForm2">메뉴 추가2</a>
 	<a href="/Menus/List">메뉴 목록</a>
 	</main>
 </body>
