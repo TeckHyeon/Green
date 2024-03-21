@@ -53,8 +53,8 @@ public class MenuController {
 	    return "redirect:/Menus/List";
 	}
 	@RequestMapping("/UpdateForm/{menu_seq}")
-	public  String  UpdateForm(@PathVariable("menu_seq") int menu_seq, Model model) {
-		MenuVo menuVo = menuMapper.menuDetail(menu_seq);
+	public  String  UpdateForm(@PathVariable("menu_seq") int menu_seq, Model model, MenuVo menuVo) {
+		menuVo = menuMapper.menuDetail(menu_seq);
 		model.addAttribute("menu", menuVo);
 		return  "menus/UpdateForm";    
 	}
