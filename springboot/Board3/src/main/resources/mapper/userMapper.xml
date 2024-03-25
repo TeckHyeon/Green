@@ -32,12 +32,14 @@
 		USERID,
 		PASSWD,
 		USERNAME,
+		UPOINT,
 		EMAIL
 		)
 		VALUES (
 		#{ userid },
 		#{ passwd },
 		#{ username },
+		#{ upoint },
 		#{ email }
 		)
 	</insert>
