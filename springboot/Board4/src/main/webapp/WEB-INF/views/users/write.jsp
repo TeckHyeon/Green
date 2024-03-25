@@ -36,7 +36,7 @@
 <body>
   <main>
 	<h2>사용자 등록</h2>
-	<form action="/Users/Write" method="POST">
+	<form action="/users/write" method="POST">
 	<table>
 	 <tr>
 	   <td>아이디</td>
@@ -56,7 +56,7 @@
 	 </tr>
 	 <tr>
 	   <td>포인트</td>
-	   <td><input type="text" value="1000" readonly /></td>
+	   <td><input type="text" value="1000"/></td>
 	 </tr>
 	 <tr>
 	   <td>가입일</td>
@@ -77,7 +77,7 @@
   <script>
   	const  goListEl  = document.getElementById('goList');
   	goListEl.addEventListener('click', function(e) {
-  		location.href = '/Menus/List';
+  		location.href = '/users/list';
   	})
   
   </script>
