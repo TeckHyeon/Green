@@ -9,11 +9,17 @@
 		WHERE MENU_ID = #{ menu_id }
 		ORDER BY bno
 	</select>
+	<select id="getMenuId" parameterType="String"
+		resultType="com.board.menus.domain.MenuVo">
+		SELECT menu_id
+		FROM MENUS
+		WHERE MENU_ID = #{ menu_id }
+	</select>
 
 	<insert id="insertBoard">
 
 		INSERT INTO BOARD (BNO, MENU_ID, TITLE, CONTENT, WRITER)
-		VALUES ((SELECT NVL(MAX(bno),0) + 1 FROM board), #{ menu_id }, #{ title }, #{ content }, #{ writer } )
+		VALUES ((SELECT NVL(MAX(BNO),0) + 1 FROM BOARD), #{ menu_id}, #{ title }, #{ content }, #{ writer } )
 
 	</insert>
 </mapper>

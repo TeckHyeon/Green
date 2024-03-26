@@ -44,27 +44,25 @@ public class BoardController {
 		return mv;
 	}
 	@RequestMapping("/writeForm")
-	public ModelAndView writeForm(BoardVo boardVo) {
+	public ModelAndView writeForm(BoardVo boardVo, @RequestParam("menu_id") String menuId) {
 		ModelAndView mv = new ModelAndView();
-		List<BoardVo> boardList = boardMapper.getBoardList(boardVo);
-		mv.addObject("boardList", boardList);
-		LocalDateTime today = LocalDateTime.now();
-		String now = today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SSSS"));
-		DayOfWeek wkday = today.getDayOfWeek();
-		now += " " + wkday;
-		mv.addObject("now", now);
+		MenuVo menuVo = new MenuVo();
+		menuVo.setMenu_id(menuId);
+		List<MenuVo> menuList = boardMapper.getMenuId(menuVo);
+		String menu_id = menuList.get(0).getMenu_id();
+		mv.addObject("menu_id", menu_id);
+		log.info(menu_id);
 		mv.setViewName("board/write");
 		return mv;
 
 	}
 	
 	@RequestMapping("/write")
-	public ModelAndView write(BoardVo boardVo, @RequestParam("menu_id") String menu_id) {
-		log.info(menu_id);
-		boardVo.setMenu_id(menu_id);
+	public ModelAndView write(BoardVo boardVo) {
 		boardMapper.insertBoard(boardVo);
+		log.info("boardVo = {}", boardVo);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:/board/list");
+		mv.setViewName("redirect:/board/list?menu_id=MENU01");
 		return mv;
 	}
 }

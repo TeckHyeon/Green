@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -41,10 +43,11 @@ input[readonly] {
 }
 </style>
 </head>
+
 <body>
 	<main>
 		<h2>게시글 등록</h2>
-		<form action="/board/write?menu_id=${ boardVo.menu_id }" method="POST">
+		<form action="/board/write?menu_id=${ menu_id }">
 			<table>
 				<tr>
 					<td>제목</td>
@@ -62,10 +65,8 @@ input[readonly] {
 					<td colspan="2"><input type="submit" value="글 쓰기" /> <input
 						type="button" value="목록" id="goList" /></td>
 				</tr>
-
 			</table>
-			<input type="hidden" name="menu_id"
-						value="${ boardVo.menu_id }" />
+			<input type="hidden" name="menu_id" value="${menu_id}" />
 		</form>
 
 	</main>
@@ -73,14 +74,10 @@ input[readonly] {
 	<script>
 		const goListEl = document.getElementById('goList');
 		goListEl.addEventListener('click', function(e) {
-			location.href = '/board/list';
+			location.href = '/board/list?menu_id=MENU01';
 		})
 	</script>
 
 </body>
+
 </html>
-
-
-
-
-
