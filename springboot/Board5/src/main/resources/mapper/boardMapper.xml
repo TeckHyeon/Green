@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.board.mapper.BoardMapper">
+
+	<select id="getBoardList" parameterType="String"
+		resultType="com.board.domain.BoardVo">
+		SELECT bno, menu_id, title, content, writer, TO_CHAR(regdate, 'YYYY-MM-DD' ) regdate , hit
+		FROM BOARD
+		WHERE MENU_ID = #{ menu_id }
+		ORDER BY bno
+	</select>
+
+	<insert id="insertBoard">
+
+		INSERT INTO BOARD (BNO, MENU_ID, TITLE, CONTENT, WRITER)
+		VALUES ((SELECT NVL(MAX(bno),0) + 1 FROM board), #{ menu_id }, #{ title }, #{ content }, #{ writer } )
+
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

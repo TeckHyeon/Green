@@ -20,6 +20,9 @@
 	<hr />
 	<div><a href="/users/list">사용자 목록</a></div>
 	<div><a href="/users/signinform">사용자 추가</a></div>
+	<div>&nbsp;</div>
+	<div><a href="/board/list?menu_id=MENU01">게시물 목록</a></div>
+	<div><a href="/board/writeForm?menu_id=MENU01">게시물 등록</a></div>
   </main>	
 </body>
 </html>
