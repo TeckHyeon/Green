@@ -1,8 +1,0 @@
-INDEX VERSION 1.134+D:\dev2\Green\springboot\.metadata\.plugins\org.eclipse.jdt.core
-3874366.index
-3558957320.index
-2604273956.index
-1246098603.index
-1865797976.index
-583125708.index
-1027785789.index
