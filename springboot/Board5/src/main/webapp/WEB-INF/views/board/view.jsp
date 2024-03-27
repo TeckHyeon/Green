@@ -1,103 +1,118 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>유저 수정</title>
-<link rel="stylesheet" type="text/css" href="css/common.css" />
-<link rel="icon" href="/img/favicon.png" />
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-	crossorigin="anonymous">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-	crossorigin="anonymous"></script>
+<title>Insert title here</title>
+<link rel="icon" type="image/png" href="/img/favicon.png" />
+<link rel="stylesheet"	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+<link rel="stylesheet"  href="/css/common.css" />
 <style>
-input:not(input[type=submit]) {
-	width: 100%;
-}
-
-input[type=submit] {
-	width: 100px;
-}
-
-#goList {
-	width: 80px;
-}
-
-td {
-	padding: 10px;
-	width: 700px;
-	text-align: center;
-}
-
-td:nth-of-type(1) {
-	width: 200px;
-}
-
-td:not([colspan]):first-child {
-	background: black;
-	color: white;
-	font-weight: bold;
-}
-
-input[readonly] {
-	background: #EEE;
-}
+  
+   #table {
+     width: 800px;
+     margin-bottom : 200px;      
+     td {
+      text-align :center;
+      padding :10px;
+      
+      &:nth-of-type(1) { 
+          width            : 150px; 
+          background-color : black;
+          color            : white; 
+      }
+      &:nth-of-type(2) { width : 250px;  }
+      &:nth-of-type(3) { 
+          width            : 150px; 
+          background-color : black;
+          color            : white;
+      }
+      &:nth-of-type(4) { width : 250px;  }    
+     }
+     
+     tr:nth-of-type(3) td:nth-of-type(2) {
+         text-align: right;
+     }      
+     
+	 tr:nth-of-type(4) td[colspan] {
+	        height : 250px;
+	        width  : 600px;   
+	        text-align: left;
+	        vertical-align: baseline;
+	 }
+	 tr:last-child td {
+	        background-color : white;
+	        color            : black;   
+	 }
+   }
+      
 </style>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/browser-scss@1.0.3/dist/browser-scss.min.js"></script>
 </head>
 <body>
-	<main>
-		<h2>유저 상세 정보</h2>
-		<table>
-			<tr>
-				<td>유저 아이디</td>
-				<td>${vo.userid}</td>
-			</tr>
-			<tr>
-				<td>유저 이름</td>
-				<td>${vo.username}</td>
-			</tr>
-			<tr>
-				<td>유저 이메일</td>
-				<td>${vo.email}</td>
-			</tr>
-			<tr>
-				<td>유저 등급</td>
-				<td>${vo.upt}</td>
-			</tr>
-			<tr>
-				<td>UPOINT</td>
-				<td><c:choose>
-						<c:when test="${ vo.upoint != 0 }">
-							${vo['upoint']} 
-						</c:when>
-						<c:otherwise>
-							<span style="color: red">없음</span>
-						</c:otherwise>
-					</c:choose></td>
-			</tr>
+  <main>
+    
+    <%@include file="/WEB-INF/include/menus.jsp" %>
+  
+   <h2>게시글 내용 조회</h2>
+   <table id="table">
+    <tr>
+      <td>글번호</td>
+      <td>${ vo.bno }</td>
+      <td>조회수</td>
+      <td>${ vo.hit }</td>      
+    </tr>
+    <tr>
+      <td>작성자</td>
+      <td>${ vo.writer }</td>
+      <td>작성일</td>
+      <td>${ vo.regdate }</td>
+    </tr>
+    <tr>
+      <td>제목</td>
+      <td colspan="3">${ vo.title }</td>   
+    </tr>
+    <tr>
+      <td>내용</td>
+      <td colspan="3">${ vo.content }</td>
+    </tr>   
+    <tr>
+      <td colspan="4">
+       <a class = "btn btn-primary btn-sm" 
+          href  = "/board/writeForm?menu_id=${ vo.menu_id }">새 글쓰기</a>&nbsp;&nbsp;
+       <a class = "btn btn-warning btn-sm" 
+          href  = "/board/updateform?bno=${ vo.bno }&menu_id=${ vo.menu_id }">수정</a>&nbsp;&nbsp;
+       <a class = "btn btn-danger btn-sm" 
+          href  = "/board/delete?bno=${ vo.bno }&menu_id=${ vo.menu_id}">삭제</a>&nbsp;&nbsp;
+       <a class = "btn btn-secondary btn-sm" 
+          href  = "/board/list?menu_id=${ vo.menu_id }">목록으로</a>&nbsp;&nbsp;
+       <a class = "btn btn-info btn-sm" 
+          href  = "javascript:history.back()">이전으로</a>&nbsp;&nbsp;
+       <a class = "btn btn-success btn-sm" 
+          href  = "/">Home</a>
+      </td>
+    </tr>
+   
+   </table>   
 
-			<tr>
-				<td>가입일</td>
-				<td>${vo.indate}</td>
-			</tr>
-			<tr>
-				<td colspan="2"><a class="btn btn-primary"
-					href="/users/signinform" role="button">회원가입</a> <a
-					class="btn btn-primary"
-					href="/users/updateform?userid=${ vo.userid }" role="button">회원수정</a>
-					<a class="btn btn-primary"
-					href="/users/delete?userid=${ vo.userid }" role="button">회원삭제</a> <a
-					class="btn btn-primary" href="/users/list" role="button">회원목록</a> <a
-					class="btn btn-primary" href="/" role="button">Home</a>
-			</tr>
-		</table>
-	</main>
+   
+  </main>
+  
+  <script>
+     const  goListEl  = document.getElementById('goList');
+     goListEl.addEventListener('click', function(e) {
+        location.href = '/Board/List';
+     })
+  
+  </script>
+  
 </body>
 </html>
+
+
+
+
+

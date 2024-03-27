@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
@@ -41,13 +40,18 @@ td:not([colspan]):first-child {
 input[readonly] {
 	background: #EEE;
 }
+textarea {
+height: 250px;
+width: 100%;
+}
 </style>
 </head>
 
 <body>
 	<main>
+	<%@include file="/WEB-INF/include/menus.jsp" %>
 		<h2>게시글 등록</h2>
-		<form action="/board/write?menu_id=${ menu_id }">
+		<form action="/board/write?menu_id=${ menu_id }" method="POST">
 			<table>
 				<tr>
 					<td>제목</td>
@@ -66,7 +70,6 @@ input[readonly] {
 						type="button" value="목록" id="goList" /></td>
 				</tr>
 			</table>
-			<input type="hidden" name="menu_id" value="${menu_id}" />
 		</form>
 
 	</main>
@@ -74,7 +77,7 @@ input[readonly] {
 	<script>
 		const goListEl = document.getElementById('goList');
 		goListEl.addEventListener('click', function(e) {
-			location.href = '/board/list?menu_id=MENU01';
+			location.href = '/board/list?menu_id=${menu_id}';
 		})
 	</script>
 

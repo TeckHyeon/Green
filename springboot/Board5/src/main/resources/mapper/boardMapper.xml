@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.board.mapper.BoardMapper">
-
 	<select id="getBoardList" parameterType="String"
 		resultType="com.board.domain.BoardVo">
-		SELECT bno, menu_id, title, content, writer, TO_CHAR(regdate, 'YYYY-MM-DD' ) regdate , hit
+		SELECT bno, menu_id, title, content, writer, TO_CHAR(regdate,
+		'YYYY-MM-DD' ) regdate , hit
 		FROM BOARD
 		WHERE MENU_ID = #{ menu_id }
 		ORDER BY bno
@@ -19,9 +19,32 @@
 	<insert id="insertBoard">
 
 		INSERT INTO BOARD (BNO, MENU_ID, TITLE, CONTENT, WRITER)
-		VALUES ((SELECT NVL(MAX(BNO),0) + 1 FROM BOARD), #{ menu_id}, #{ title }, #{ content }, #{ writer } )
+		VALUES ((SELECT NVL(MAX(BNO),0) + 1 FROM BOARD), #{ menu_id}, #{ title
+		}, #{ content }, #{ writer } )
 
 	</insert>
+
+	<select id="viewBoard" parameterType="int"
+		resultType="com.board.domain.BoardVo">
+		SELECT BNO, MENU_ID, TITLE, content, WRITER, TO_CHAR(regdate,
+		'YYYY-MM-DD' ) REGDATE , HIT
+		FROM BOARD
+		WHERE BNO = #{ bno }
+		ORDER BY BNO
+	</select>
+
+	<update id="updateboard">
+		UPDATE BOARD
+		SET TITLE = #{title}, content = #{content}, writer = #{ writer }
+		WHERE BNO = #{ bno }
+	</update>
+
+	<update id="incHit">
+		UPDATE BOARD
+		SET HIT = HIT + 1
+		WHERE BNO = #{ bno }
+	</update>
+
 </mapper>
 
 

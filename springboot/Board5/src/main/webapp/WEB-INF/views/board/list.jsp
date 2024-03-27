@@ -83,7 +83,7 @@ td:first-child>td {
 				<td>조회수</td>
 			</tr>
 			<tr>
-				<td colspan="7">[<a href="/board/writeForm?menu_id=${ boardVo.menu_id }">글쓰기</a>]
+				<td colspan="7">[<a href="/board/writeForm?menu_id=${ menu_id }"">글쓰기</a>]
 				</td>
 			</tr>
 
