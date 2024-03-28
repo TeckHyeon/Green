@@ -1,6 +1,5 @@
 package com.board.controller;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import com.board.domain.BoardVo;
 import com.board.mapper.BoardMapper;
 import com.board.menus.domain.MenuVo;
 import com.board.menus.mapper.MenuMapper;
-import com.board.user.domain.UserVo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -110,5 +108,15 @@ public class BoardController {
 		return mv;
 
 	}
-
+	@RequestMapping("/delete")
+	public ModelAndView delete(BoardVo boardVo) {
+		boardMapper.deleteboard(boardVo);
+		String menu_id = boardVo.getMenu_id();
+		ModelAndView mv = new ModelAndView();
+		log.info("boardVo = {}", boardVo);
+		mv.setViewName("redirect:/board/list?menu_id=" + menu_id);
+		return mv;
+		
+	}
+	
 }

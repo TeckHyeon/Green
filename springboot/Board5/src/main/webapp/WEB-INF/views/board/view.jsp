@@ -108,6 +108,17 @@
      })
   
   </script>
+  	<script type="text/javascript">
+		document.addEventListener('click', function(e) {
+			if (e.target && e.target.classList.contains('delete_btn')) {
+				e.preventDefault(); // 기본 동작 방지
+				var menuSeq = e.target.getAttribute('data-menu-seq');
+				if (confirm("정말 삭제하시겠습니까?")) {
+					location.href = '/board/delete?bno=${ vo.bno }&menu_id=${ vo.menu_id}'
+				}
+			}
+		});
+	</script>
   
 </body>
 </html>

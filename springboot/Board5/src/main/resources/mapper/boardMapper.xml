@@ -44,7 +44,9 @@
 		SET HIT = HIT + 1
 		WHERE BNO = #{ bno }
 	</update>
-
+	<delete id="deleteboard">
+		DELETE FROM BOARD WHERE BNO = #{ bno } AND MENU_ID = #{ menu_id }
+	</delete>
 </mapper>
 
 
