@@ -24,4 +24,6 @@ public interface UserMapper {
 
 	void updateUser(UserVo userVo);
 
+	UserVo login(String userid, String passwd);
+
 }

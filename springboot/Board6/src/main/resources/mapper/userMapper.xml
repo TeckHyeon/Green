@@ -90,6 +90,13 @@
 		SET EMAIL = #{email}, USERNAME = #{username}, PASSWD = #{ passwd }
 		WHERE USERID = #{userid}
 	</update>
+	<select id="login">
+		Select USERID, PASSWD, USERNAME, EMAIL, upoint, TO_CHAR( INDATE,
+		'YYYY-MM-DD') INDATE
+		from TUSER
+		WHERE USERID = #{ arg0 } AND PASSWD = #{ arg1 }
+
+	</select>
 </mapper>
 
 
