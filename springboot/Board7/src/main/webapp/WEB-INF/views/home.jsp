@@ -39,6 +39,13 @@
 			<a href="/board/writeForm?menu_id=MENU01">게시물 등록</a>
 		</div>
 		<div>&nbsp;</div>
+		<div>
+			<a href="/boardPaging/list?menu_id=MENU01">게시물 목록(페이징)</a>
+		</div>
+		<div>
+			<a href="/boardPaging/writeForm?menu_id=MENU01">게시물 등록(페이징)</a>
+		</div>
+		<div>&nbsp;</div>
 
 		<div>
 			${login.username }님 환영합니다<br> 당신의 가입일은 ${login.indate } 입니다.
