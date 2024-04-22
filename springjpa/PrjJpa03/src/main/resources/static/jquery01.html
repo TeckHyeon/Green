@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style type="text/css">
+/* h1 {
+	color: blue;
+
+}
+
+p {
+	color: red;
+} */
+</style>
+<script type="text/javascript">
+
+/* window.onload=function() {
+	const h1Els = document.getElementsByTagName('h1');
+	const pEls = document.getElementsByTagName('p');
+	h1Els[0].style.color = "blue";
+	h1Els[1].style.color = "blue";
+	for(let i = 0; i<pEls.length; i++) {
+		pEls[i].style.color = "red";
+	}	
+} */
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('h1').css('color', 'blue');
+	$('p').css('color', 'red');
+});
+$( function(){ // window onload와 달리 여러번 사용가능
+	$('#div1').html('<p>div1입니다ㅎ</p>')
+	$('#div2').text('<p>div2입니다ㅋ</p>')
+	$('div > p').css('text-decoration', 'underline');
+	
+	$('#div1').on('click', function(){
+	    console.log($(this));
+	    const clickYn = $(this).data('clickYn');
+	    alert('div1');
+	    
+	    if(clickYn == 'N') { 
+	        $('div').css('background-color','green');
+	        $(this).data('clickYn', 'Y'); 
+	    } else {
+	        $('div').css('background-color','blue');
+	        $(this).data('clickYn', 'N'); 
+	    }
+	});
+});
+</script>
+
+
+
+</head>
+<body>
+	<h1>Hello</h1>
+	<p>Lorem Ipsum</p>
+	<h1>Title</h1>
+	<p>Lorem Ipsum</p>
+	<p>Lorem Ipsum</p>
+	<div id="div1" data-clickYn="N"></div>
+	<div id="div2"></div>
+</body>
+</html>

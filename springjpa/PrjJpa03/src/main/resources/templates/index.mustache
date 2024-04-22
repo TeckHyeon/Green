@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<ul>
+			<li><a href="/Mvc">MVC 방식</a></li>
+			<li><a href="/ajax1">@ResponseBody</a></li>
+			<li><a href="/ajax2">XMLHttpRequest</a></li>
+			<li>&nbsp;</li>
+			<li><input type="text" id="indata" /> <input type="button"
+				value="중복확인" id="btnGetData" /></li>
+
+			<li><input type="text" id="indata2" /> <input type="button"
+				value="중복확인" id="btnGetData2" /></li>
+			<li><input type="text" id="indata3" /> <input type="button"
+				value="중복확인" id="btnGetData3" /></li>
+		</ul>
+		<div id="output"></div>
+		<ul>
+		<li>
+		<a href="jquery01.html">jquery01</a>
+		<a href="jquery02.html">jquery02</a>
+		<a href="jquery03.html">jquery03</a>
+		</li>
+		
+		</ul>
+		
+		
+	</div>
+	<script>
+		const btnGetDataEl = document.querySelector("#btnGetData");
+		const outputEL = document.getElementById('output');
+		btnGetDataEl.addEventListener('click', function() {
+			alert('click');
+			const xhttp = new XMLHttpRequest();
+	
+			
+			xhttp.onload = function() { //결과가 도착할 때 수행하는 이벤트
+				console.dir(xhttp);
+				alert(xhttp.responseText);
+				outputEL.innerHTML = xhttp.responseText;
+			}
+
+			xhttp.open("GET", "/ajax3");
+			xhttp.send();
+		});
+		
+		const btnGetDataEl2 = document.querySelector("#btnGetData2");
+		
+		btnGetDataEl2.onclick = (e) => {
+			// alert('data2 click');
+			let result = "";
+			fetch('/ajax3')
+			.then((response) => response.text())
+			.then((data) => {
+				result = data;
+				outputEL.innerHTML = result;
+			});
+			}
+		const btnGetDataEl3 = document.querySelector("#btnGetData3");
+		btnGetDataEl3.onclick = (e) => {
+			fetch('/ajax4')
+			.then((response) => response.json())
+			.then((jsonObj) => {
+				alert(jsonObj);
+				let html = `<div><ul><li>아이디:${jsonObj.userid}</li><li>이름:${jsonObj.username}</li><li>암호:${jsonObj.userpass}</li><ul></div>`
+				outputEL.innerHTML = html;  
+			});
+		};
+		
+	</script>
+</body>
+</html>

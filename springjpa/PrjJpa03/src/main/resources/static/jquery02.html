@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script>
+
+  $(function() {
+	$('div').on('click', function(e){
+		console.dir($(this));
+		this.style.color = 'red';
+	});
+  })
+  
+</script>
+</head>
+<body>
+	<div>div1</div>
+	<div>div2</div>
+	<div>div3</div>
+	<div>div4</div>
+</body>
+</html>
